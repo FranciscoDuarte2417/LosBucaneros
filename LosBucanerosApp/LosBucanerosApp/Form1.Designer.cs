@@ -142,7 +142,7 @@
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnLogin.Location = new System.Drawing.Point(119, 130);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(170, 31);
+            this.btnLogin.Size = new System.Drawing.Size(176, 31);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Ingresar al Sistema 44";
             this.btnLogin.UseVisualStyleBackColor = true;
