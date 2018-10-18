@@ -361,6 +361,7 @@ namespace LosBucanerosApp
                 comm.CommandText = "spUpdateAdministrative";
                 //enviamos los parametros del procedimiento almacenado
                 comm.Parameters.AddWithValue("@id", idadministrativo);
+                comm.Parameters.AddWithValue("@noempleado", noEmpleado);
                 comm.Parameters.AddWithValue("@nombre", Nombre);
                 comm.Parameters.AddWithValue("@nombre2", Nombre2);
                 comm.Parameters.AddWithValue("@apellido", Apellido);
