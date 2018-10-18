@@ -118,6 +118,11 @@ namespace LosBucanerosApp
             objmostrar.ShowDialog();
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void pbAsignaciones_Click(object sender, EventArgs e)
         {
             FrmReposiva objmostrar = new FrmReposiva(Nombre,Apellido,Permiso);
