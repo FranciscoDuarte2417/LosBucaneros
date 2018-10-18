@@ -1,0 +1,613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81BF2CFC-9ED8-41AB-B874-477ED1D6331A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LosBucanerosApp</RootNamespace>
+    <AssemblyName>LosBucanerosApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\192.168.6.248\Documentos\sistemas\InstaladorPrueba\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>1</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>\\192.168.6.248\Documentos\sistemas\InstaladorPrueba\</UpdateUrl>
+    <MinimumRequiredVersion>1.0.0.5</MinimumRequiredVersion>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsUrl>\\192.168.6.248\Documentos\sistemas\InstaladorPrueba\prerequisitos\CRRuntime_64bit_13_0_22</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3D86835F7C967825F31EDC17A3EB45511BB7437C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LosBucanerosApp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>buca.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\..\..\..\..\Desktop\WebCam\WebCam\bin\x86\Release\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\..\..\..\..\Desktop\WebCam\WebCam\bin\x86\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\..\..\..\..\Desktop\WebCam\WebCam\bin\x86\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK, Version=2.3.55.2, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.2.3.55.2\lib\net45\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClsAdministrativos.cs" />
+    <Compile Include="ClsAlmacenEquipos.cs" />
+    <Compile Include="ClsAsignacionNumerosSIM.cs" />
+    <Compile Include="ClsCoordinadores.cs" />
+    <Compile Include="ClsLineas.cs" />
+    <Compile Include="ClsOperadores.cs" />
+    <Compile Include="ClsResponsivas.cs" />
+    <Compile Include="ClsRutas.cs" />
+    <Compile Include="ClsTarjetaSim.cs" />
+    <Compile Include="ClsTractos.cs" />
+    <Compile Include="ClsUsuarios.cs" />
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport2.cs">
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="CrystalReport3.cs">
+      <DependentUpon>CrystalReport3.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjusteCoordinador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjusteCoordinador.Designer.cs">
+      <DependentUpon>FrmAjusteCoordinador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjusteLineas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjusteLineas.Designer.cs">
+      <DependentUpon>FrmAjusteLineas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjustesAdministrativos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjustesAdministrativos.Designer.cs">
+      <DependentUpon>FrmAjustesAdministrativos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjustesAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjustesAlmacen.Designer.cs">
+      <DependentUpon>FrmAjustesAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjustesOperadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjustesOperadores.Designer.cs">
+      <DependentUpon>FrmAjustesOperadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjusteTracto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjusteTracto.Designer.cs">
+      <DependentUpon>FrmAjusteTracto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjusteUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjusteUsuarios.Designer.cs">
+      <DependentUpon>FrmAjusteUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlmacen.Designer.cs">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAsignacionNumerosSIM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAsignacionNumerosSIM.Designer.cs">
+      <DependentUpon>FrmAsignacionNumerosSIM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCelulares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCelulares.Designer.cs">
+      <DependentUpon>FrmCelulares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesResponsiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesResponsiva.Designer.cs">
+      <DependentUpon>FrmDetallesResponsiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormularioReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormularioReg.Designer.cs">
+      <DependentUpon>FrmFormularioReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFoto.Designer.cs">
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFotoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFotoDialog.Designer.cs">
+      <DependentUpon>FrmFotoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistros.Designer.cs">
+      <DependentUpon>FrmRegistros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteador.Designer.cs">
+      <DependentUpon>FrmReporteador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReposiva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReposiva.Designer.cs">
+      <DependentUpon>FrmReposiva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmResponsivas2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResponsivas2.Designer.cs">
+      <DependentUpon>FrmResponsivas2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTarjetaSim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTarjetaSim.Designer.cs">
+      <DependentUpon>FrmTarjetaSim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ResponsivaDescuento.cs">
+      <DependentUpon>ResponsivaDescuento.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ResponsivaDescuento.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResponsivaDescuento.rpt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjusteCoordinador.resx">
+      <DependentUpon>FrmAjusteCoordinador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjusteLineas.resx">
+      <DependentUpon>FrmAjusteLineas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjustesAdministrativos.resx">
+      <DependentUpon>FrmAjustesAdministrativos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjustesAlmacen.resx">
+      <DependentUpon>FrmAjustesAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjustesOperadores.resx">
+      <DependentUpon>FrmAjustesOperadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjusteTracto.resx">
+      <DependentUpon>FrmAjusteTracto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjusteUsuarios.resx">
+      <DependentUpon>FrmAjusteUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlmacen.resx">
+      <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAsignacionNumerosSIM.resx">
+      <DependentUpon>FrmAsignacionNumerosSIM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCelulares.resx">
+      <DependentUpon>FrmCelulares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesResponsiva.resx">
+      <DependentUpon>FrmDetallesResponsiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormularioReg.resx">
+      <DependentUpon>FrmFormularioReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFoto.resx">
+      <DependentUpon>FrmFoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFotoDialog.resx">
+      <DependentUpon>FrmFotoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistros.resx">
+      <DependentUpon>FrmRegistros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteador.resx">
+      <DependentUpon>FrmReporteador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReposiva.resx">
+      <DependentUpon>FrmReposiva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResponsivas2.resx">
+      <DependentUpon>FrmResponsivas2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTarjetaSim.resx">
+      <DependentUpon>FrmTarjetaSim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resources\ResponsivaDescuento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ResponsivaDescuento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResponsivaDescuento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ResponsivaDescuento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="LosBucanerosApp_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Celulares.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celulares2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registros2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tracto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\responsiva2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resposiva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Operadores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Operadores2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tracto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tracto2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jefe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jefe2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celulares.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celulares2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\altas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\altas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consultas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consultas2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alta2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baja2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modificaciones2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrativo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrativo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\almacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\almacen2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enrada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equipo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entradaalmacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salidaalmacen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cellp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linea %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SIM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Asset 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsim2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entregar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.12.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Report Viewer 2014 Runtime</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="SAP.CrystalReports14.NET.2.0">
+      <Visible>False</Visible>
+      <ProductName>SAP Crystal Reports Runtime Engine for .NET Framework</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subir1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="buca.ico" />
+    <None Include="Resources\Telcel.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

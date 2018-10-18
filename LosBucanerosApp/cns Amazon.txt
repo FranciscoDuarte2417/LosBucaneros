@@ -1,0 +1,14 @@
+losbucaneros.clkm3ykxjjdd.us-east-1.rds.amazonaws.com
+
+sa
+LosBucaneros2018
+
+	Select distinct R.Id,O.Nombre+' '+O.Apellido+' '+O.Apellido2 as Operador,x.Telefono as Linea,(case O.Coordinador when 0 then 'Sin' else J.Nombre end + '-'+ case O.Coordinador when 0 then 'Coordinador' else J.Apellido end) as Coordinador,C.Modelo+' '+C.Nombre as Equipo,R.Tiporesponsiva,R.Fecha From tbResponsivas as R
+	Inner join (Select A.Id,tbLineas.Telefono,tbSim.Sim,A.Estatus,A.Comentarios from dbo.tbAsignacionsim as A
+				inner join dbo.tbSim on A.Idsim= tbSim.Id
+				Inner join dbo.tbLineas on A.Idlinea = tbLineas.Id) as X ON R.Idasignacion = X.Id
+	Inner join tbCelulares as C ON R.Idequipo = C.Id
+	Inner join tbOperadores as O ON R.Idoperador = O.Id
+	Inner join tbCoordinador as J ON O.Coordinador = J.Id OR O.Coordinador = 0
+	where R.Estatus = 'Activo'  and R.Tipoempleado = 'Operador'
+	ORDER BY Id
