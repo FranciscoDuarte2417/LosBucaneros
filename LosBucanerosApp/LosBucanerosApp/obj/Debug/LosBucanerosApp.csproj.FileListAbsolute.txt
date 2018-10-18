@@ -223,7 +223,6 @@ C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucan
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\bin\Debug\stdole.dll
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\bin\Debug\AWSSDK.pdb
-C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.csprojResolveAssemblyReference.cache
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.Form1.resources
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmAjusteCoordinador.resources
 C:\Users\Francisco Duarte\source\repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmAjusteLineas.resources
