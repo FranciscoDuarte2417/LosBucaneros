@@ -144,7 +144,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(176, 31);
             this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Ingresar al Sistema 44";
+            this.btnLogin.Text = "Ingresar al Sistema 55";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
