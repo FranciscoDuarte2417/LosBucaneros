@@ -74,7 +74,10 @@
             // 
             this.dgvResponsivas.AllowUserToAddRows = false;
             this.dgvResponsivas.AllowUserToDeleteRows = false;
-            this.dgvResponsivas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvResponsivas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvResponsivas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvResponsivas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Detalles,
             this.Responsiva});
@@ -98,7 +101,6 @@
             this.Detalles.ReadOnly = true;
             this.Detalles.Text = "Ver Detalles";
             this.Detalles.UseColumnTextForButtonValue = true;
-            this.Detalles.Width = 51;
             // 
             // Responsiva
             // 
@@ -112,7 +114,6 @@
             this.Responsiva.ReadOnly = true;
             this.Responsiva.Text = "Agrear";
             this.Responsiva.UseColumnTextForButtonValue = true;
-            this.Responsiva.Width = 70;
             // 
             // label8
             // 
@@ -229,6 +230,7 @@
             this.Name = "FrmResponsivas2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Responsivas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmResponsivas2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResponsivas)).EndInit();
             this.ResumeLayout(false);
