@@ -307,3 +307,4 @@ C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.csproj.CopyComplete
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.exe
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.pdb
+C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmAmazonPhoto.resources
