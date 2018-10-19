@@ -730,7 +730,7 @@ namespace LosBucanerosApp
                     {
                         Objequipos.Equipopagado = "FINANCIADO";
                         Objequipos.Meses = txtmeses.Text;
-                        Objequipos.Pagomensual = (Convert.ToInt32(rentaa) / Convert.ToInt32(txtmeses.Text)).ToString();
+                        Objequipos.Pagomensual = string.Format("{0:n2}", (Convert.ToDouble(rentaa) / Convert.ToDouble(txtmeses.Text)).ToString());
                     }
                     else
                     {
