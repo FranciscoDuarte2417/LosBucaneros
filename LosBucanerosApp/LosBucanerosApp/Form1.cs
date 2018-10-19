@@ -29,7 +29,8 @@ namespace LosBucanerosApp
         private void btnLogin_Click(object sender, EventArgs e)
         {         
            
-            login(); 
+            login();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -107,6 +108,11 @@ namespace LosBucanerosApp
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
         {
 
         }

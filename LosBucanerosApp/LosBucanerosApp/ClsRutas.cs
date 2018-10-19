@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Net.Mail;
+
 
 
 namespace LosBucanerosApp
@@ -33,6 +35,50 @@ namespace LosBucanerosApp
             }
            
         
+        }
+
+
+        public void EnviarCorreo(string idresponsiva, string tipoempleado, string nombre, string linea, string equipo, string tiporesponsiva, string total, string fecha,string descuento,string descuentosemanal)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("losbucanerossistemas@gmail.com");
+                mail.To.Add("responsivas@stratorgroup.com");
+                mail.Subject = "Responsiva Prueba";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                if (tiporesponsiva == "PRESTAMO")
+                {
+                    htmlBody = "<html><head><meta charset='utf-8'><title>Untitled Document</title></head><body><img src='http://losbucaneros.com/app/images/Logo.png' width='200' height='150'</p><p><strong>Responsiva por equipo celular</strong></p><table width='789' border='1'><tbody><tr><td width='128'>Id Responsiva</td><td width='101'>Tipo Empleado</td><td width='87'>Nombre</td><td width='82'>Linea</td><td width='70'>Equipo</td><td width='145'>Tipo Responsiva</td><td width='53'>Total</td><td width='71'>Fecha</td></tr><tr><td>" + idresponsiva + "</td><td>" + tipoempleado + "</td><td>" + nombre + "</td><td>" + linea + "</td><td>" + equipo + "</td><td>" + tiporesponsiva + "</td><td>" + total + "</td><td>" + fecha + "</td></tr></tbody></table></body></html>";
+                }
+                else if (tiporesponsiva == "DESCUENTO")
+                {
+                    htmlBody = "<html><head><meta charset='utf-8'><title>Untitled Document</title></head><body><img src='http://losbucaneros.com/app/images/Logo.png' width='200' height='150'</p><p><strong>Responsiva por equipo celular</strong></p><table width='789' border='1'><tbody><tr><td width='128'>Id Responsiva</td><td width='101'>Tipo Empleado</td><td width='87'>Nombre</td><td width='82'>Linea</td><td width='70'>Equipo</td><td width='145'>Tipo Responsiva</td><td width='53'>Total</td><td width='101'>Descuento</td><td width='101'>Descuento Semanal</td><td width='71'>Fecha</td></tr><tr><td>" + idresponsiva + "</td><td>" + tipoempleado + "</td><td>" + nombre + "</td><td>" + linea + "</td><td>" + equipo + "</td><td>" + tiporesponsiva + "</td><td>" + total + "</td><td>" + descuento + "</td><td>" + descuentosemanal + "</td><td>" + fecha + "</td></tr></tbody></table></body></html>";
+                }
+                else
+                {
+                    htmlBody = "<html><head><meta charset='utf-8'><title>Untitled Document</title></head><body><img src='http://losbucaneros.com/app/images/Logo.png' width='200' height='150'</p><p><strong>Responsiva por tarjeta sim</strong></p><table width='789' border='1'><tbody><tr><td width='128'>Id Responsiva</td><td width='101'>Tipo Empleado</td><td width='87'>Nombre</td><td width='82'>Linea</td><td width='145'>Tipo Responsiva</td><td width='53'>Total</td><td width='71'>Fecha</td></tr><tr><td>" + idresponsiva + "</td><td>" + tipoempleado + "</td><td>" + nombre + "</td><td>" + linea + "</td><td>" + tiporesponsiva + "</td><td>" + total + "</td><td>" + fecha + "</td></tr></tbody></table></body></html>";
+                }
+                
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("losbucanerossistemas@gmail.com", "LosBucaneros2018");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                System.Windows.Forms.MessageBox.Show("Mensaje Enviado");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

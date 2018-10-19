@@ -629,7 +629,37 @@ namespace LosBucanerosApp
             //dataGridView1.DataBind();
 
         }
-        public void populateGridResponsivasActivas(string tipoempleado)
+
+        public void preciosim(string tipoempleado)
+        {
+            try
+            { //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+
+                comm = new SqlCommand("[spPrecioSim]", conn);
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //
+                comm.CommandType = CommandType.StoredProcedure;
+
+                //
+                adp = new SqlDataAdapter(comm);
+                dt = new DataTable();
+                adp.Fill(dt);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+            public void populateGridResponsivasActivas(string tipoempleado)
         {
             try
             { //establecer parametros de conexion

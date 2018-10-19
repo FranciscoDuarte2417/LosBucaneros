@@ -23,6 +23,7 @@ namespace LosBucanerosApp
             Permiso = permiso;
         }
         string id,marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo,comentarios, operador, totalconletra, descuentos, importedescuento, usuario,Tipoempleado;
+        ClsRutas correo = new ClsRutas();
         private void rptResponsivaDescuento_InitReport(object sender, EventArgs e)
         {
 
@@ -670,7 +671,17 @@ namespace LosBucanerosApp
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (cmbtipo.SelectedIndex==0)
-            {            
+            {
+                if (rbOperador.Checked == true)
+                {
+                    objresponsiva.TipoEmpleado = "Operador";
+                    Tipoempleado = "Operador";
+                }
+                else
+                {
+                    objresponsiva.TipoEmpleado = "Administrativo";
+                    Tipoempleado = "Administrativo";
+                }
                 if (cmbasignacion.BackColor==Color.White && cmbasignacion.BackColor == Color.White && txtdescuentos.Text!="")
                 {
                     if (auxiliar == "insert")
@@ -692,24 +703,18 @@ namespace LosBucanerosApp
                         objresponsiva.IdAsignacion = Convert.ToInt32(cmbasignacion.SelectedValue);
                         
                         objresponsiva.IdOperador = Convert.ToInt32(cmbOperador.SelectedValue);
-                        
-                        
+
+
                         
                         objresponsiva.Fecha = DateTime.Now.ToShortDateString();
                         objresponsiva.Estatus = "Activo";
                         objresponsiva.Comentarios = txtComentarios.Text;
-                        if (rbOperador.Checked == true)
-                        {
-                            objresponsiva.TipoEmpleado = "Operador";
-                        }
-                        else
-                        {
-                            objresponsiva.TipoEmpleado = "Administrativo";
-                        }
+                        
 
 
                         objresponsiva.insertResponsiva();
                         objresponsiva.IdResponsiva();
+                        
 
                         if (objresponsiva.resultado == 1)
                         {
@@ -722,6 +727,8 @@ namespace LosBucanerosApp
                             CargarComboAsignaciones();
                             CargarComboEquipos();
                             CargarComboOperadores();
+
+                            
 
                             id = objresponsiva.Id.ToString();
                             if (cmbequipo.SelectedIndex == -1)
@@ -762,15 +769,17 @@ namespace LosBucanerosApp
                             importedescuento = lbldescuentosemanal.Text + " " + lbldescuentosemanalletra.Text;
                             usuario = Nombre.ToUpper() + " " + Apellido.ToUpper();
 
-
+                            
 
                             if (cmbequipo.SelectedIndex == -1)
                             {
+                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "SIM", preciosim(), DateTime.Now.ToShortDateString(), "0", "0");
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
                                 objmostrar.Show();
                             }
-                            else
+                            else if (cmbequipo.SelectedIndex == 0)
                             {
+                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "DESCUENTO", lblprecio.Text, DateTime.Now.ToShortDateString(), lblcantidaddescuentos.Text,lbldescuentosemanal.Text);
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "DESCUENTO");
                                 objmostrar.Show();
                             }
@@ -805,6 +814,16 @@ namespace LosBucanerosApp
             }
             else if (cmbtipo.SelectedIndex == 1)
             {
+                if (rbOperador.Checked == true)
+                {
+                    objresponsiva.TipoEmpleado = "Operador";
+                    Tipoempleado = "Operador";
+                }
+                else
+                {
+                    objresponsiva.TipoEmpleado = "Administrativo";
+                    Tipoempleado = "Administrativo";
+                }
                 if (cmbasignacion.BackColor == Color.White && cmbasignacion.BackColor == Color.White)
                 {
                     if (auxiliar == "insert")
@@ -818,7 +837,7 @@ namespace LosBucanerosApp
                         }
                         else
                         {
-                            objresponsiva.Descuentos = txtdescuentos.Text;
+                            objresponsiva.Descuentos = "0";
                             objresponsiva.Total = dgvequipos["PrecioPublico", 0].Value.ToString();
                             objresponsiva.IdEquipo = Convert.ToInt32(cmbequipo.SelectedValue);
                             objresponsiva.TipoResponsiva = cmbtipo.SelectedItem.ToString();
@@ -832,14 +851,7 @@ namespace LosBucanerosApp
                         objresponsiva.Fecha = DateTime.Now.ToShortDateString();
                         objresponsiva.Estatus = "Activo";
                         objresponsiva.Comentarios = txtComentarios.Text;
-                        if (rbOperador.Checked == true)
-                        {
-                            objresponsiva.TipoEmpleado = "Operador";
-                        }
-                        else
-                        {
-                            objresponsiva.TipoEmpleado = "Administrativo";
-                        }
+                        
 
 
                         objresponsiva.insertResponsiva();
@@ -901,11 +913,13 @@ namespace LosBucanerosApp
 
                             if (cmbequipo.SelectedIndex == -1)
                             {
+                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "SIM", preciosim(), DateTime.Now.ToShortDateString(), "0", "0");
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
                                 objmostrar.Show();
                             }
-                            else
+                            else if (cmbequipo.SelectedIndex == 1)
                             {
+                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "PRESTAMO", lblprecio.Text, DateTime.Now.ToShortDateString(), "0", "0");
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "PRESTAMO");
                                 objmostrar.Show();
                             }
@@ -942,14 +956,21 @@ namespace LosBucanerosApp
             }
             
          
+        }
+        public string preciosim()
+        {
+            //cuando esta disponible
+            string precio= "";
+            objresponsiva.populateGridResponsivasActivas(Tipoempleado);
+            
+            foreach (DataRow row in objresponsiva.dt.Rows)
+            {
+                precio = row[0].ToString();
+            }
 
+            // dgvReponsivas.Columns.Add(DataGridViewImageCell dat);
 
-
-
-
-
-
-
+            return precio;
         }
 
         private void cmbasignacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -979,7 +1000,7 @@ namespace LosBucanerosApp
                 label2.Text = "Datos Operador";
                 CargarComboOperadores();
                 cmbOperador.SelectedIndex = -1;
-
+                label11.Text = "Operador:";
             }
         }
 
@@ -990,6 +1011,7 @@ namespace LosBucanerosApp
                 label2.Text = "Datos Administrativo";
                 CargarComboAdministrativos();
                 cmbOperador.SelectedIndex = -1;
+                label11.Text = "Administrativo:";
 
             }
         }
