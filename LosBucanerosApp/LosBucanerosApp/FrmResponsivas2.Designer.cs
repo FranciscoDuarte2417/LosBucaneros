@@ -34,8 +34,6 @@
             this.cmbestatus = new System.Windows.Forms.ComboBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dgvResponsivas = new System.Windows.Forms.DataGridView();
-            this.Detalles = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Responsiva = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -44,6 +42,8 @@
             this.rbAdministrativo = new System.Windows.Forms.RadioButton();
             this.rbOperador = new System.Windows.Forms.RadioButton();
             this.lblcont = new System.Windows.Forms.Label();
+            this.Detalles = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Responsiva = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResponsivas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,31 +89,6 @@
             this.dgvResponsivas.TabIndex = 2;
             this.dgvResponsivas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReponsivas_CellContentClick);
             this.dgvResponsivas.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvResponsivas_DataBindingComplete);
-            // 
-            // Detalles
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.Detalles.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Detalles.HeaderText = "Detalles";
-            this.Detalles.Name = "Detalles";
-            this.Detalles.ReadOnly = true;
-            this.Detalles.Text = "Ver Detalles";
-            this.Detalles.UseColumnTextForButtonValue = true;
-            // 
-            // Responsiva
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            this.Responsiva.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Responsiva.DividerWidth = 1;
-            this.Responsiva.HeaderText = "Responsiva";
-            this.Responsiva.Name = "Responsiva";
-            this.Responsiva.ReadOnly = true;
-            this.Responsiva.Text = "Agrear";
-            this.Responsiva.UseColumnTextForButtonValue = true;
             // 
             // label8
             // 
@@ -210,6 +185,31 @@
             this.lblcont.TabIndex = 73;
             this.lblcont.Text = "lblcont";
             // 
+            // Detalles
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
+            this.Detalles.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Detalles.HeaderText = "Detalles";
+            this.Detalles.Name = "Detalles";
+            this.Detalles.ReadOnly = true;
+            this.Detalles.Text = "Ver Detalles";
+            this.Detalles.UseColumnTextForButtonValue = true;
+            // 
+            // Responsiva
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.Responsiva.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Responsiva.DividerWidth = 1;
+            this.Responsiva.HeaderText = "Responsiva";
+            this.Responsiva.Name = "Responsiva";
+            this.Responsiva.ReadOnly = true;
+            this.Responsiva.Text = "Agregar";
+            this.Responsiva.UseColumnTextForButtonValue = true;
+            // 
             // FrmResponsivas2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,8 +242,6 @@
         private System.Windows.Forms.ComboBox cmbestatus;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridView dgvResponsivas;
-        private System.Windows.Forms.DataGridViewButtonColumn Detalles;
-        private System.Windows.Forms.DataGridViewButtonColumn Responsiva;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -252,5 +250,7 @@
         private System.Windows.Forms.RadioButton rbAdministrativo;
         private System.Windows.Forms.RadioButton rbOperador;
         private System.Windows.Forms.Label lblcont;
+        private System.Windows.Forms.DataGridViewButtonColumn Detalles;
+        private System.Windows.Forms.DataGridViewButtonColumn Responsiva;
     }
 }

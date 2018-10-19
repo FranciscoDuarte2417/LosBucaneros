@@ -67,6 +67,16 @@ namespace LosBucanerosApp
                     FrmDetallesResponsiva objdetalles = new FrmDetallesResponsiva(id, Nombre, Apellido, Permiso,Tipoempleado);
                     objdetalles.Show();
                 }
+
+                if (cell.Value.ToString() == "Agregar")
+                {
+                    int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
+                    int id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+
+                    FrmAmazonPhoto photo = new FrmAmazonPhoto();
+                    photo.Show();
+                }
             }
             catch (Exception)
             {

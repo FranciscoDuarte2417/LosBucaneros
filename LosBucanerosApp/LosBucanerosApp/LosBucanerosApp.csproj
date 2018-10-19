@@ -185,6 +185,12 @@
     <Compile Include="FrmAlmacen.Designer.cs">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAmazonPhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAmazonPhoto.Designer.cs">
+      <DependentUpon>FrmAmazonPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAsignacionNumerosSIM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAlmacen.resx">
       <DependentUpon>FrmAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAmazonPhoto.resx">
+      <DependentUpon>FrmAmazonPhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAsignacionNumerosSIM.resx">
       <DependentUpon>FrmAsignacionNumerosSIM.cs</DependentUpon>
@@ -552,7 +561,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
