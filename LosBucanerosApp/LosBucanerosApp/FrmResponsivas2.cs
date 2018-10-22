@@ -74,7 +74,8 @@ namespace LosBucanerosApp
                     DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
                     int id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
 
-                    FrmAmazonPhoto photo = new FrmAmazonPhoto();
+
+                    FrmAmazonPhoto photo = new FrmAmazonPhoto(id.ToString(),Tipoempleado);
                     photo.Show();
                 }
             }
@@ -110,6 +111,11 @@ namespace LosBucanerosApp
             lblcont.Text = "Responsivas: " + dgvResponsivas.RowCount;
         }
 
+        private void dgvResponsivas_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtbusqueda_TextChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == -1)
@@ -131,6 +137,23 @@ namespace LosBucanerosApp
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //DialogResult X = MessageBox.Show("¿El operador sera dado de baja?","Baja Responsiva",MessageBoxButtons.YesNoCancel);
+            //if (X == DialogResult.Yes)
+            //{
+            //    DialogResult X = MessageBox.Show("¿El operador sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+            //}
+            //else if (X == DialogResult.No)
+            //{
+
+            //}
+            //else if(X == DialogResult.Cancel)
+            //{
+
+            //}
+        }
+
         private void cmbestatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbestatus.SelectedIndex == 0)
@@ -143,9 +166,29 @@ namespace LosBucanerosApp
             }
         }
 
+        string id = "";
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (dgvResponsivas.SelectedCells.Count > 0)
+                {
+                    int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
 
+                    DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
+                    id = Convert.ToString(selectedRow.Cells["Id"].Value);
+                    btnEliminar.Enabled = true;
+                }
+                else
+                {
+                    btnEliminar.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
     }
 }

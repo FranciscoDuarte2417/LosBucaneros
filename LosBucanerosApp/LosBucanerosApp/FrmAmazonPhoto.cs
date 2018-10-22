@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,27 +16,149 @@ namespace LosBucanerosApp
 {
     public partial class FrmAmazonPhoto : Form
     {
-        public FrmAmazonPhoto()
+        string id, tipoempleado, operador, telefono, equipo, tiporesponsiva, descuento, descuentosemanal;
+        public FrmAmazonPhoto(string Id, string Tipoempleado)
         {
             InitializeComponent();
+            id = Id;
+            tipoempleado = Tipoempleado;
+            
         }
+        ClsResponsivas objresponsiva = new ClsResponsivas();
 
+        private SqlConnection conn;
+        private SqlCommand comm;
+        public DataTable dt;
+        public SqlDataAdapter adp;
+        ClsRutas objrutas = new ClsRutas();
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            Archivo = new OpenFileDialog();
-            DialogResult result = Archivo.ShowDialog();
-            if (result == DialogResult.OK)
+            try
             {
-                txtpath.Text = Archivo.FileName;
+                Archivo = new OpenFileDialog();
+                DialogResult result = Archivo.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    txtpath.Text = Archivo.FileName;
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hubo problemas con el archivo");
+            }
+            
+        }
+
+        public string preciosim()
+        {
+            //cuando esta disponible
+            string precio = "";
+            try
+            { //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+                comm = new SqlCommand("[spPrecioSim]", conn);
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //
+                comm.CommandType = CommandType.StoredProcedure;
+
+
+                //
+                adp = new SqlDataAdapter(comm);
+                dt = new DataTable();
+                adp.Fill(dt);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                precio = row[0].ToString();
+            }
+
+            // dgvReponsivas.Columns.Add(DataGridViewImageCell dat);
+
+            return precio;
+        }
+
+        public void DetallesCorreo()
+        {
+            try
+            { //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+                comm = new SqlCommand("[spCorreoResponsiva]", conn);
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.Parameters.AddWithValue("@id", id);
+                comm.Parameters.AddWithValue("@tipoempleado", tipoempleado);
+
+
+                //
+                adp = new SqlDataAdapter(comm);
+                dt = new DataTable();
+                adp.Fill(dt);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                id = row[0].ToString();
+                tipoempleado = row[1].ToString();
+                operador = row[2].ToString(); 
+                telefono = row[3].ToString();
+                equipo = row[4].ToString();
+                tiporesponsiva = row[5].ToString();
+                if (tiporesponsiva != "PRESTAMO")
+                {
+                    descuento = row[6].ToString();
+                    descuentosemanal = (Convert.ToDouble(row[7].ToString()) / Convert.ToDouble(row[6].ToString())).ToString();
+                }
+                else
+                {
+                    descuento = "0";
+                    descuentosemanal = "0";
+                }
+                
             }
         }
 
         private void btnsubir_Click(object sender, EventArgs e)
         {
-            UploadFileToS3(txtpath.Text,"ResponsivasAdministrativos");
+            if (tipoempleado == "Operador")
+            {
+                UploadFileToS3(txtpath.Text, "ResponsivasOperadores");
+            }
+            else
+            {
+                UploadFileToS3(txtpath.Text, "ResponsivasAdministrativos");
+            }
+            DetallesCorreo();
+            objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, preciosim(), DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
         }
         private void UploadFileToS3(string filePath, string subDirectoryInBucket)
         {
+            string nuevaruta = @"C:\Users\Administrador\Desktop\" + id + ".pdf";
+            System.IO.File.Copy(txtpath.Text, nuevaruta);
             var awsAccessKey = "AKIAI5KHC3XKCDKYP3NQ";
             var awsSecretKey = "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";
             var existingBucketName = "losbucaneros";
@@ -59,9 +182,9 @@ namespace LosBucanerosApp
                 request.BucketName = existingBucketName + @"/" + subDirectoryInBucket;
             }
             //request.Key = fileNameInS3; //file name up in S3
-            request.FilePath = filePath; //local file name
+            request.FilePath = nuevaruta; //local file name
             fileTransferUtility.Upload(request); //commensing the transfer
-
+            System.IO.File.Delete(nuevaruta);
             //  fileTransferUtility.Upload(uploadRequest);
         }
     }

@@ -773,18 +773,18 @@ namespace LosBucanerosApp
 
                             if (cmbequipo.SelectedIndex == -1)
                             {
-                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "SIM", preciosim(), DateTime.Now.ToShortDateString(), "0", "0");
+                                
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
                                 objmostrar.Show();
                             }
-                            else if (cmbequipo.SelectedIndex == 0)
+                            else
                             {
-                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "DESCUENTO", lblprecio.Text, DateTime.Now.ToShortDateString(), lblcantidaddescuentos.Text,lbldescuentosemanal.Text);
+                               
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "DESCUENTO");
                                 objmostrar.Show();
                             }
 
-                            limpiarcampos();
+                            
                         }
                         else if (objresponsiva.resultado == 2)
                         {
@@ -913,18 +913,18 @@ namespace LosBucanerosApp
 
                             if (cmbequipo.SelectedIndex == -1)
                             {
-                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "SIM", preciosim(), DateTime.Now.ToShortDateString(), "0", "0");
+                                
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
                                 objmostrar.Show();
                             }
-                            else if (cmbequipo.SelectedIndex == 1)
+                            else
                             {
-                                correo.EnviarCorreo(objresponsiva.Id.ToString(), objresponsiva.TipoEmpleado, operador, telefono, marca + " " + nombre, "PRESTAMO", lblprecio.Text, DateTime.Now.ToShortDateString(), "0", "0");
+                                
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "PRESTAMO");
                                 objmostrar.Show();
                             }
 
-                            
+
 
                             limpiarcampos();
                         }
@@ -954,24 +954,10 @@ namespace LosBucanerosApp
                     MessageBox.Show("No se admiten campos nulos");
                 }
             }
-            
-         
-        }
-        public string preciosim()
-        {
-            //cuando esta disponible
-            string precio= "";
-            objresponsiva.populateGridResponsivasActivas(Tipoempleado);
-            
-            foreach (DataRow row in objresponsiva.dt.Rows)
-            {
-                precio = row[0].ToString();
-            }
 
-            // dgvReponsivas.Columns.Add(DataGridViewImageCell dat);
-
-            return precio;
+            limpiarcampos();
         }
+        
 
         private void cmbasignacion_SelectedIndexChanged(object sender, EventArgs e)
         {
