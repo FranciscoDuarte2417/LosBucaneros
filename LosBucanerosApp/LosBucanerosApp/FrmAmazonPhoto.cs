@@ -61,6 +61,8 @@ namespace LosBucanerosApp
             //request.Key = fileNameInS3; //file name up in S3
             request.FilePath = filePath; //local file name
             fileTransferUtility.Upload(request); //commensing the transfer
+            MessageBox.Show("Responsiva Subida Con Exito");
+            this.Close();
 
             //  fileTransferUtility.Upload(uploadRequest);
         }
