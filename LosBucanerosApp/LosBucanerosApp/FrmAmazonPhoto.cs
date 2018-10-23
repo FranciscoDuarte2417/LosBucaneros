@@ -16,7 +16,7 @@ namespace LosBucanerosApp
 {
     public partial class FrmAmazonPhoto : Form
     {
-        string id, tipoempleado, operador, telefono, equipo, tiporesponsiva, descuento, descuentosemanal;
+        string id, tipoempleado, operador, telefono, equipo, tiporesponsiva,total, descuento, descuentosemanal;
         public FrmAmazonPhoto(string Id, string Tipoempleado)
         {
             InitializeComponent();
@@ -128,6 +128,7 @@ namespace LosBucanerosApp
                 telefono = row[3].ToString();
                 equipo = row[4].ToString();
                 tiporesponsiva = row[5].ToString();
+                total = row[7].ToString();
                 if (tiporesponsiva != "PRESTAMO")
                 {
                     descuento = row[6].ToString();
@@ -137,8 +138,11 @@ namespace LosBucanerosApp
                 {
                     descuento = "0";
                     descuentosemanal = "0";
+                    
                 }
                 
+
+
             }
         }
 
@@ -153,7 +157,15 @@ namespace LosBucanerosApp
                 UploadFileToS3(txtpath.Text, "ResponsivasAdministrativos");
             }
             DetallesCorreo();
-            objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, preciosim(), DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
+            if (tiporesponsiva == "SIM")
+            {
+                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, preciosim(), DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
+            }
+            else
+            {
+                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, total, DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
+            }
+            
         }
         private void UploadFileToS3(string filePath, string subDirectoryInBucket)
         {

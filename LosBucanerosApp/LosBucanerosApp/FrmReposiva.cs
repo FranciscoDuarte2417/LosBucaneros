@@ -724,9 +724,7 @@ namespace LosBucanerosApp
                             objresponsiva.UpdateDeviceStatus();
                             objresponsiva.UpdateAsignacionStatus();
 
-                            CargarComboAsignaciones();
-                            CargarComboEquipos();
-                            CargarComboOperadores();
+                            
 
                             
 
@@ -771,7 +769,7 @@ namespace LosBucanerosApp
 
                             
 
-                            if (cmbequipo.SelectedIndex == -1)
+                            if (objresponsiva.TipoResponsiva == "SIM")
                             {
                                 
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
@@ -865,9 +863,7 @@ namespace LosBucanerosApp
                             objresponsiva.UpdateDeviceStatus();
                             objresponsiva.UpdateAsignacionStatus();
 
-                            CargarComboAsignaciones();
-                            CargarComboEquipos();
-                            CargarComboOperadores();
+                            
 
                             id = objresponsiva.Id.ToString();
                             if (cmbequipo.SelectedIndex == -1)
@@ -911,7 +907,7 @@ namespace LosBucanerosApp
                             }
                             usuario = Nombre.ToUpper() + " " + Apellido.ToUpper();
 
-                            if (cmbequipo.SelectedIndex == -1)
+                            if (objresponsiva.TipoResponsiva == "SIM")
                             {
                                 
                                 FrmReporteador objmostrar = new FrmReporteador(id, marca, modelo, nombre, imei, companiaequipo, telefono, sim, companialinea, cargador, cable, audifonos, protector, esnuevo, comentarios, operador, totalconletra, descuentos, importedescuento, usuario, "SIM");
@@ -925,8 +921,7 @@ namespace LosBucanerosApp
                             }
 
 
-
-                            limpiarcampos();
+                            
                         }
                         else if (objresponsiva.resultado == 2)
                         {
@@ -955,6 +950,9 @@ namespace LosBucanerosApp
                 }
             }
 
+            CargarComboAsignaciones();
+            CargarComboEquipos();
+            CargarComboOperadores();
             limpiarcampos();
         }
         
