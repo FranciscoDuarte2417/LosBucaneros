@@ -38,7 +38,7 @@ namespace LosBucanerosApp
         }
 
 
-        public void EnviarCorreo(string idresponsiva, string tipoempleado, string nombre, string linea, string equipo, string tiporesponsiva, string total, string fecha,string descuento,string descuentosemanal)
+        public void EnviarCorreo(string idresponsiva, string tipoempleado, string nombre, string linea, string equipo, string tiporesponsiva, string total, string fecha,string descuento,string descuentosemanal,string pathdocument)
         {
             try
             {
@@ -48,6 +48,7 @@ namespace LosBucanerosApp
                 mail.From = new MailAddress("losbucanerossistemas@gmail.com");
                 mail.To.Add("responsivas@stratorgroup.com");
                 
+
 
                 mail.IsBodyHtml = true;
                 string htmlBody;
@@ -70,6 +71,9 @@ namespace LosBucanerosApp
                 
 
                 mail.Body = htmlBody;
+                System.Net.Mail.Attachment adjunto;
+                adjunto = new System.Net.Mail.Attachment(pathdocument);
+                mail.Attachments.Add(adjunto);
 
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("losbucanerossistemas@gmail.com", "LosBucaneros2018");

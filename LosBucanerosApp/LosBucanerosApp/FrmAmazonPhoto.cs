@@ -159,11 +159,11 @@ namespace LosBucanerosApp
             DetallesCorreo();
             if (tiporesponsiva == "SIM")
             {
-                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, preciosim(), DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
+                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, preciosim(), DateTime.Now.ToShortDateString(), descuento, descuentosemanal, txtpath.Text);
             }
             else
             {
-                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, total, DateTime.Now.ToShortDateString(), descuento, descuentosemanal);
+                objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, total, DateTime.Now.ToShortDateString(), descuento, descuentosemanal, txtpath.Text);
             }
             
         }
