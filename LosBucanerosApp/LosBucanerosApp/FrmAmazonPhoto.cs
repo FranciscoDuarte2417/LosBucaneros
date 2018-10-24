@@ -165,7 +165,8 @@ namespace LosBucanerosApp
             {
                 objrutas.EnviarCorreo(id, tipoempleado, operador, telefono, equipo, tiporesponsiva, total, DateTime.Now.ToShortDateString(), descuento, descuentosemanal, txtpath.Text);
             }
-            
+            MessageBox.Show("Archivo enviado con Exito","Finalizado",MessageBoxButtons.OK);
+
         }
         private void UploadFileToS3(string filePath, string subDirectoryInBucket)
         {
