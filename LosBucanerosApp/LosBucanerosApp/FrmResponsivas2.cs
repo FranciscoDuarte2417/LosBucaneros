@@ -167,97 +167,87 @@ namespace LosBucanerosApp
         {
             try
             {
-                DialogResult X = MessageBox.Show("¿La cancelación es con devolución?", "Cancelación", MessageBoxButtons.YesNoCancel);
-                if (X == DialogResult.Yes)
+                DialogResult X = MessageBox.Show("¿Seguro que desea cancelar esta responsiva?", "Cancelación", MessageBoxButtons.OKCancel);
+                if (X == DialogResult.OK)
                 {
-                    X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+                    X = MessageBox.Show("¿La cancelación es con devolución?", "Cancelación", MessageBoxButtons.YesNoCancel);
                     if (X == DialogResult.Yes)
                     {
-                        aux = 1; CancelarResponsiva();
-                    }
-                    else if (X == DialogResult.No)
-                    {
-                        aux = 2; CancelarResponsiva();
-                    }
-                    else if (X == DialogResult.Cancel)
-                    {
-                        
-                    }
-                }
-                else if (X == DialogResult.No)
-                {
-                    try
-                    {
-                        //establecer parametros de conexion
-                        conn = new SqlConnection(objrutas.connstring);
-                        //abrir conexion con parametros previamente asignados
-                        conn.Open();
-                        //asignar comando de sql
-                        comm = new SqlCommand("spDetallesResponsiva", conn);
-                        //asignar conexion al comando
-                        comm.Connection = conn;
-                        //
-                        comm.CommandType = CommandType.StoredProcedure;
-                        comm.Parameters.AddWithValue("@id", id);
-                        comm.Parameters.AddWithValue("@tipoempleado", Tipoempleado);
-                        adp = new SqlDataAdapter(comm);
-                        dt = new DataTable();
-                        adp.Fill(dt);
-
-                        DataRow row = dt.Rows[0];
-                        id = row[0].ToString();
-                        string tiporespon = row[19].ToString();
-                        string marca = row[4].ToString();
-                        string modelo = row[5].ToString();
-                        string nombre = row[6].ToString();
-                        string imei = row[3].ToString();
-                        string companiaequipo = row[7].ToString();
-                        string telefono = row[2].ToString();
-                        string sim = row[1].ToString();
-                        string companialinea = row[7].ToString();
-                        string cargador = row[8].ToString();
-                        string cable = row[9].ToString();
-                        string audifonos = row[10].ToString();
-                        string protector = row[11].ToString();
-                        string esnuevo = row[12].ToString();
-                        string comentarios = row[22].ToString();
-                        string operador = row[15].ToString() + " " + row[23].ToString() + " " + row[16].ToString() + " " + row[24].ToString();
-                        string totalconletra = row[20].ToString() + " " + enletras(row[20].ToString());
-                        string descuentos = row[21].ToString();
-                        string numero = row[20].ToString();
-                        numero = numero.Replace(",", "");
-                        if (tiporespon == "DESCUENTO")
+                        X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+                        if (X == DialogResult.Yes)
                         {
-                            string des = row[21].ToString();
-                            double descuento = Convert.ToDouble(numero) / Convert.ToDouble(des);
-                            string importedescuento = Convert.ToInt32(descuento).ToString() + " " + enletras(Convert.ToInt32(descuento).ToString());
+                            aux = 1; CancelarResponsiva();
                         }
-                        
-
-
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
-                    X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
-                    if (X == DialogResult.Yes)
-                    {
-                        aux = 3; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                        else if (X == DialogResult.No)
+                        {
+                            aux = 2; CancelarResponsiva();
+                        }
                     }
                     else if (X == DialogResult.No)
                     {
-                        aux = 4; CancelarResponsiva(); objrutas.CorreoCancelacion(  );
-                    }
-                    else if (X == DialogResult.Cancel)
-                    {
+                        try
+                        {
+                            //establecer parametros de conexion
+                            conn = new SqlConnection(objrutas.connstring);
+                            //abrir conexion con parametros previamente asignados
+                            conn.Open();
+                            //asignar comando de sql
+                            comm = new SqlCommand("spDetallesResponsiva", conn);
+                            //asignar conexion al comando
+                            comm.Connection = conn;
+                            //
+                            comm.CommandType = CommandType.StoredProcedure;
+                            comm.Parameters.AddWithValue("@id", id);
+                            comm.Parameters.AddWithValue("@tipoempleado", Tipoempleado);
+                            adp = new SqlDataAdapter(comm);
+                            dt = new DataTable();
+                            adp.Fill(dt);
 
-                    }
-                }
-                else if (X == DialogResult.Cancel)
-                {
+                            DataRow row = dt.Rows[0];
+                            id = row[0].ToString();
+                            string operador = row[15].ToString() + " " + row[23].ToString() + " " + row[16].ToString() + " " + row[24].ToString();
+                            conn.Close();
+                            FrmDescuento Descuento = new FrmDescuento(id,operador,tiporesponsiva);
+                            Descuento.ShowDialog();
+                            //establecer parametros de conexion
+                            conn = new SqlConnection(objrutas.connstring);
+                            //abrir conexion con parametros previamente asignados
+                            conn.Open();
+                            //asignar comando de sql
+                            comm = new SqlCommand("spInsertDescuento", conn);
+                            //asignar conexion al comando
+                            comm.Connection = conn;
+                            //
+                            comm.CommandType = CommandType.StoredProcedure;
+                            
+                            adp = new SqlDataAdapter(comm);
+                            dt = new DataTable();
+                            adp.Fill(dt);
+                            conn.Close();
+                            row = dt.Rows[0];
+                            id = row[0].ToString();
+                            string idresponsiva = row[1].ToString();
+                            string tipodescuento = row[2].ToString();
+                            string totaldescuento = row[3].ToString();
+                            string fecha = row[4].ToString();
+                            string comentarios = row[5].ToString();
+                            
+                        }
+                        catch (Exception)
+                        {
 
+                            throw;
+                        }
+                        X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+                        if (X == DialogResult.Yes)
+                        {
+                            aux = 3; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                        }
+                        else if (X == DialogResult.No)
+                        {
+                            aux = 4; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                        }
+                    }
                 }
             }
             catch (Exception)

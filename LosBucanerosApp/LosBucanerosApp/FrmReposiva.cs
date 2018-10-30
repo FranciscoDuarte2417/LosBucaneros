@@ -130,10 +130,10 @@ namespace LosBucanerosApp
         {
 
         }
-
+        FrmResponsivas2 objmostrar;
         private void pbBuscar_Click(object sender, EventArgs e)
         {
-            FrmResponsivas2 objmostrar;
+            
             if (rbOperador.Checked == true)
             {
                 objmostrar = new FrmResponsivas2(Nombre, Apellido, Permiso,"Operador");
