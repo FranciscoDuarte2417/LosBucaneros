@@ -422,8 +422,8 @@ namespace LosBucanerosApp
             
             
 
-            txtPrecioPublico.Text = preciopublico;
-            txtPrecioBucaneros.Text = preciobucaneros;
+            txtPrecioPublico.Text = "$"+preciopublico;
+            txtPrecioBucaneros.Text = "$"+preciobucaneros;
             txtComentarios.Text = comentarios;
             txtAutoriza.Text = autoriza;
 
@@ -460,6 +460,9 @@ namespace LosBucanerosApp
                 chkAudifonos.Checked = false;
 
             }
+            Objequipos.Pagomensual = pagomensual;
+            Objequipos.Meses = meses;
+            Objequipos.Equipopagado = equipopagado;
 
 
             if (protector == "SI")
@@ -498,6 +501,7 @@ namespace LosBucanerosApp
                 txtAutoriza.Enabled = false;
 
             }
+
             txtImei.Enabled = true;
             cmbMarca.Enabled = true;
             txtModelo.Enabled = true;
@@ -788,6 +792,9 @@ namespace LosBucanerosApp
                         {
                             //manda llamar el metodo de la clase
                             Objequipos.Fotonombre = ClsAlmacenEquipos.fotoruta;
+                            preciobucaneros = preciobucaneros.Trim(' ');
+                            Objequipos.PrecioBucaneros = Objequipos.PrecioBucaneros.Trim(' ');
+                            Objequipos.PrecioPublico = Objequipos.PrecioPublico.Trim(' ');
                             Objequipos.insertDevices();
                             if (Objequipos.resultado == 1)
                             {
