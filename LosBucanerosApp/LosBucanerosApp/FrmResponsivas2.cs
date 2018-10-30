@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,12 @@ namespace LosBucanerosApp
 {
     public partial class FrmResponsivas2 : Form
     {
+        ClsRutas objrutas = new ClsRutas();
         string Nombre, Apellido, Permiso,Tipoempleado;
+        private SqlConnection conn;
+        private SqlCommand comm;
+        public DataTable dt;
+        public SqlDataAdapter adp;
         public FrmResponsivas2(string nombre, string apellido, string permiso, string tipoempleado)
         {
             InitializeComponent();
@@ -62,9 +68,9 @@ namespace LosBucanerosApp
                 {
                     int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
-                    int id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+                    int ids = Convert.ToInt32(selectedRow.Cells["Id"].Value);
 
-                    FrmDetallesResponsiva objdetalles = new FrmDetallesResponsiva(id, Nombre, Apellido, Permiso,Tipoempleado);
+                    FrmDetallesResponsiva objdetalles = new FrmDetallesResponsiva(ids, Nombre, Apellido, Permiso,Tipoempleado);
                     objdetalles.Show();
                 }
 
@@ -72,10 +78,10 @@ namespace LosBucanerosApp
                 {
                     int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
                     DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
-                    int id = Convert.ToInt32(selectedRow.Cells["Id"].Value);
+                    int ids = Convert.ToInt32(selectedRow.Cells["Id"].Value);
 
 
-                    FrmAmazonPhoto photo = new FrmAmazonPhoto(id.ToString(),Tipoempleado);
+                    FrmAmazonPhoto photo = new FrmAmazonPhoto(ids.ToString(),Tipoempleado);
                     photo.Show();
                 }
             }
@@ -113,7 +119,27 @@ namespace LosBucanerosApp
 
         private void dgvResponsivas_SelectionChanged(object sender, EventArgs e)
         {
+            try
+            {
+                if (dgvResponsivas.SelectedCells.Count > 0)
+                {
+                    int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
 
+                    DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
+                    id = Convert.ToString(selectedRow.Cells["Id"].Value);
+                    tiporesponsiva = Convert.ToString(selectedRow.Cells["Tiporesponsiva"].Value);
+                    btnEliminar.Enabled = true;
+                }
+                else
+                {
+                    btnEliminar.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
         private void txtbusqueda_TextChanged(object sender, EventArgs e)
@@ -139,19 +165,107 @@ namespace LosBucanerosApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            //DialogResult X = MessageBox.Show("¿El operador sera dado de baja?","Baja Responsiva",MessageBoxButtons.YesNoCancel);
-            //if (X == DialogResult.Yes)
-            //{
-            //    DialogResult X = MessageBox.Show("¿El operador sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
-            //}
-            //else if (X == DialogResult.No)
-            //{
+            try
+            {
+                DialogResult X = MessageBox.Show("¿La cancelación es con devolución?", "Cancelación", MessageBoxButtons.YesNoCancel);
+                if (X == DialogResult.Yes)
+                {
+                    X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+                    if (X == DialogResult.Yes)
+                    {
+                        aux = 1; CancelarResponsiva();
+                    }
+                    else if (X == DialogResult.No)
+                    {
+                        aux = 2; CancelarResponsiva();
+                    }
+                    else if (X == DialogResult.Cancel)
+                    {
+                        
+                    }
+                }
+                else if (X == DialogResult.No)
+                {
+                    try
+                    {
+                        //establecer parametros de conexion
+                        conn = new SqlConnection(objrutas.connstring);
+                        //abrir conexion con parametros previamente asignados
+                        conn.Open();
+                        //asignar comando de sql
+                        comm = new SqlCommand("spDetallesResponsiva", conn);
+                        //asignar conexion al comando
+                        comm.Connection = conn;
+                        //
+                        comm.CommandType = CommandType.StoredProcedure;
+                        comm.Parameters.AddWithValue("@id", id);
+                        comm.Parameters.AddWithValue("@tipoempleado", Tipoempleado);
+                        adp = new SqlDataAdapter(comm);
+                        dt = new DataTable();
+                        adp.Fill(dt);
 
-            //}
-            //else if(X == DialogResult.Cancel)
-            //{
+                        DataRow row = dt.Rows[0];
+                        id = row[0].ToString();
+                        string tiporespon = row[19].ToString();
+                        string marca = row[4].ToString();
+                        string modelo = row[5].ToString();
+                        string nombre = row[6].ToString();
+                        string imei = row[3].ToString();
+                        string companiaequipo = row[7].ToString();
+                        string telefono = row[2].ToString();
+                        string sim = row[1].ToString();
+                        string companialinea = row[7].ToString();
+                        string cargador = row[8].ToString();
+                        string cable = row[9].ToString();
+                        string audifonos = row[10].ToString();
+                        string protector = row[11].ToString();
+                        string esnuevo = row[12].ToString();
+                        string comentarios = row[22].ToString();
+                        string operador = row[15].ToString() + " " + row[23].ToString() + " " + row[16].ToString() + " " + row[24].ToString();
+                        string totalconletra = row[20].ToString() + " " + enletras(row[20].ToString());
+                        string descuentos = row[21].ToString();
+                        string numero = row[20].ToString();
+                        numero = numero.Replace(",", "");
+                        if (tiporespon == "DESCUENTO")
+                        {
+                            string des = row[21].ToString();
+                            double descuento = Convert.ToDouble(numero) / Convert.ToDouble(des);
+                            string importedescuento = Convert.ToInt32(descuento).ToString() + " " + enletras(Convert.ToInt32(descuento).ToString());
+                        }
+                        
 
-            //}
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                    X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
+                    if (X == DialogResult.Yes)
+                    {
+                        aux = 3; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                    }
+                    else if (X == DialogResult.No)
+                    {
+                        aux = 4; CancelarResponsiva(); objrutas.CorreoCancelacion(  );
+                    }
+                    else if (X == DialogResult.Cancel)
+                    {
+
+                    }
+                }
+                else if (X == DialogResult.Cancel)
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            aux = 0;
         }
 
         private void cmbestatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -166,29 +280,278 @@ namespace LosBucanerosApp
             }
         }
 
-        string id = "";
+        string id = "",tiporesponsiva = "";
+        int aux = 0;
+        private int resultado;
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void CancelarResponsiva()
         {
             try
             {
-                if (dgvResponsivas.SelectedCells.Count > 0)
-                {
-                    int selectedrowindex = dgvResponsivas.SelectedCells[0].RowIndex;
+                //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+                comm = new SqlCommand();
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //comando de tipo procedimiento almacenado
+                comm.CommandType = CommandType.StoredProcedure;
+                //nombre del procedimiento almacenado
+                comm.CommandText = "spDeleteResponsiva";
+                //enviamos los parametros del procedimiento almacenado
+                comm.Parameters.AddWithValue("@id", Convert.ToInt32(id));
+                comm.Parameters.AddWithValue("@aux", aux);
 
-                    DataGridViewRow selectedRow = dgvResponsivas.Rows[selectedrowindex];
-                    id = Convert.ToString(selectedRow.Cells["Id"].Value);
-                    btnEliminar.Enabled = true;
-                }
-                else
-                {
-                    btnEliminar.Enabled = false;
-                }
+                comm.ExecuteNonQuery();
+                resultado = 1;
+                conn.Close();
+
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                resultado = 0;
+                throw;
+            }
+        }
+
+        private string toText(double value)
+        {
+
+
+            string Num2Text = "";
+
+
+            value = Math.Truncate(value);
+
+
+            if (value == 0) Num2Text = "CERO";
+
+
+            else if (value == 1) Num2Text = "UNO";
+
+
+            else if (value == 2) Num2Text = "DOS";
+
+
+            else if (value == 3) Num2Text = "TRES";
+
+
+            else if (value == 4) Num2Text = "CUATRO";
+
+
+            else if (value == 5) Num2Text = "CINCO";
+
+
+            else if (value == 6) Num2Text = "SEIS";
+
+
+            else if (value == 7) Num2Text = "SIETE";
+
+
+            else if (value == 8) Num2Text = "OCHO";
+
+
+            else if (value == 9) Num2Text = "NUEVE";
+
+
+            else if (value == 10) Num2Text = "DIEZ";
+
+
+            else if (value == 11) Num2Text = "ONCE";
+
+
+            else if (value == 12) Num2Text = "DOCE";
+
+
+            else if (value == 13) Num2Text = "TRECE";
+
+
+            else if (value == 14) Num2Text = "CATORCE";
+
+
+            else if (value == 15) Num2Text = "QUINCE";
+
+
+            else if (value < 20) Num2Text = "DIECI" + toText(value - 10);
+
+
+            else if (value == 20) Num2Text = "VEINTE";
+
+
+            else if (value < 30) Num2Text = "VEINTI" + toText(value - 20);
+
+
+            else if (value == 30) Num2Text = "TREINTA";
+
+
+            else if (value == 40) Num2Text = "CUARENTA";
+
+
+            else if (value == 50) Num2Text = "CINCUENTA";
+
+
+            else if (value == 60) Num2Text = "SESENTA";
+
+
+            else if (value == 70) Num2Text = "SETENTA";
+
+
+            else if (value == 80) Num2Text = "OCHENTA";
+
+
+            else if (value == 90) Num2Text = "NOVENTA";
+
+
+            else if (value < 100) Num2Text = toText(Math.Truncate(value / 10) * 10) + " Y " + toText(value % 10);
+
+
+            else if (value == 100) Num2Text = "CIEN";
+
+
+            else if (value < 200) Num2Text = "CIENTO " + toText(value - 100);
+
+
+            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) Num2Text = toText(Math.Truncate(value / 100)) + "CIENTOS";
+
+
+            else if (value == 500) Num2Text = "QUINIENTOS";
+
+
+            else if (value == 700) Num2Text = "SETECIENTOS";
+
+
+            else if (value == 900) Num2Text = "NOVECIENTOS";
+
+
+            else if (value < 1000) Num2Text = toText(Math.Truncate(value / 100) * 100) + " " + toText(value % 100);
+
+
+            else if (value == 1000) Num2Text = "MIL";
+
+
+            else if (value < 2000) Num2Text = "MIL " + toText(value % 1000);
+
+
+            else if (value < 1000000)
             {
 
 
+                Num2Text = toText(Math.Truncate(value / 1000)) + " MIL";
+
+
+                if ((value % 1000) > 0) Num2Text = Num2Text + " " + toText(value % 1000);
+
+
             }
+
+
+            else if (value == 1000000) Num2Text = "UN MILLON";
+
+
+            else if (value < 2000000) Num2Text = "UN MILLON " + toText(value % 1000000);
+
+
+            else if (value < 1000000000000)
+            {
+
+
+                Num2Text = toText(Math.Truncate(value / 1000000)) + " MILLONES ";
+
+
+                if ((value - Math.Truncate(value / 1000000) * 1000000) > 0) Num2Text = Num2Text + " " + toText(value - Math.Truncate(value / 1000000) * 1000000);
+
+
+            }
+
+
+            else if (value == 1000000000000) Num2Text = "UN BILLON";
+
+
+            else if (value < 2000000000000) Num2Text = "UN BILLON " + toText(value - Math.Truncate(value / 1000000000000) * 1000000000000);
+
+
+            else
+            {
+
+
+                Num2Text = toText(Math.Truncate(value / 1000000000000)) + " BILLONES";
+
+
+                if ((value - Math.Truncate(value / 1000000000000) * 1000000000000) > 0) Num2Text = Num2Text + " " + toText(value - Math.Truncate(value / 1000000000000) * 1000000000000);
+
+
+            }
+
+
+            return Num2Text;
+
+
+        }
+        public string enletras(string num)
+        {
+
+
+            string res, dec = "";
+
+
+            Int64 entero;
+
+
+            int decimales;
+
+
+            double nro;
+
+
+            try
+            {
+
+
+                nro = Convert.ToDouble(num);
+
+
+            }
+
+
+            catch
+            {
+
+
+                return "";
+
+
+            }
+
+
+            entero = Convert.ToInt64(Math.Truncate(nro));
+
+
+            decimales = Convert.ToInt32(Math.Round((nro - entero) * 100, 2));
+
+
+            if (decimales > 0)
+            {
+
+
+                dec = " CON " + decimales.ToString() + "/ 100";
+
+
+            }
+
+
+            res = toText(Convert.ToDouble(entero)) + dec;
+
+
+            return res;
+
+
         }
     }
 }

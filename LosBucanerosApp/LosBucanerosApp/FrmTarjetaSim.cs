@@ -91,9 +91,6 @@ namespace LosBucanerosApp
                 compania = Convert.ToString(selectedRow.Cells["Compania"].Value);
                 estatus = Convert.ToString(selectedRow.Cells["Estatus"].Value);
                 comentarios = Convert.ToString(selectedRow.Cells["Comentarios"].Value);
-             
-
-
             }
         }
 
