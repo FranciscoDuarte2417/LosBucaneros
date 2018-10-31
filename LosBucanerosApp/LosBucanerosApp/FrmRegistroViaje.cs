@@ -47,9 +47,10 @@ namespace LosBucanerosApp
 
         public void VisibilidadImportacion()
         {
-            txtsello.Enabled = false;
-            cmbOperador.Enabled = false;
-            txtTracto.Enabled = false;
+            txtsello.Enabled = true;
+            cmbOperador.Enabled = true;
+            txtTracto.Enabled = true;
+            CargarCajas();
         }
         public void VisibilidadExportacioNacional()
         {
@@ -65,9 +66,16 @@ namespace LosBucanerosApp
             cmbOperador.ValueMember = "Id";
             cmbOperador.DisplayMember = "Nombre";
             cmbOperador.SelectedIndex = -1;
-          
 
-
+        }
+        public void CargarCajas()
+        {
+            cmbcajas.DataSource = null;
+            objcajas.populateGridCajas();
+            cmbcajas.DataSource = objcajas.dt;
+            cmbcajas.ValueMember = "IdCaja";
+            cmbcajas.DisplayMember = "Caja";
+            cmbcajas.SelectedIndex = -1;
         }
         public void CargarTractosPorOperador()
         {
@@ -118,6 +126,43 @@ namespace LosBucanerosApp
         {
             
         
+        }
+
+
+        ClsCajas objcajas = new ClsCajas();
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbcajas.SelectedIndex != -1)
+            {
+
+                DataRow Row = objcajas.dt.Rows[Convert.ToInt32(cmbcajas.SelectedIndex)];
+                txtPlacas.Text = Row[2].ToString();
+            }
+        }
+
+        private void cmbTipoCarga_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoCarga.SelectedIndex == 0)
+            {
+                txtRangoTemperaturas.Enabled = true;
+                txtTemperatura.Enabled = true;
+                txtProducto.Enabled = true;
+                rbCentigrados.Enabled = true;
+                rbFarenheit.Enabled = true;
+            }
+            else if(cmbTipoCarga.SelectedIndex ==1)
+            {
+                txtRangoTemperaturas.Enabled = false;
+                txtTemperatura.Enabled = false;
+                txtProducto.Enabled = true;
+                rbCentigrados.Enabled = false;
+                rbFarenheit.Enabled = false;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

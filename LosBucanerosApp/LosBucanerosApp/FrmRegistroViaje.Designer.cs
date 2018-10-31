@@ -63,7 +63,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbcajas = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtPlacas = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -261,6 +261,7 @@
             this.cmbTipoCarga.Name = "cmbTipoCarga";
             this.cmbTipoCarga.Size = new System.Drawing.Size(194, 28);
             this.cmbTipoCarga.TabIndex = 22;
+            this.cmbTipoCarga.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCarga_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -415,6 +416,7 @@
             this.btnCancelar.TabIndex = 37;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label16
             // 
@@ -436,14 +438,15 @@
             this.label17.TabIndex = 39;
             this.label17.Text = "Registro de Informacion de fletes:";
             // 
-            // comboBox1
+            // cmbcajas
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(104, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 28);
-            this.comboBox1.TabIndex = 41;
+            this.cmbcajas.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
+            this.cmbcajas.FormattingEnabled = true;
+            this.cmbcajas.Location = new System.Drawing.Point(104, 82);
+            this.cmbcajas.Name = "cmbcajas";
+            this.cmbcajas.Size = new System.Drawing.Size(194, 28);
+            this.cmbcajas.TabIndex = 41;
+            this.cmbcajas.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -484,7 +487,7 @@
             this.ClientSize = new System.Drawing.Size(625, 515);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtPlacas);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbcajas);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -568,7 +571,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbcajas;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtPlacas;
         private System.Windows.Forms.Label label19;

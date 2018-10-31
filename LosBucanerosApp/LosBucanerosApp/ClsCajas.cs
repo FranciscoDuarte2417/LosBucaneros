@@ -132,8 +132,8 @@ namespace LosBucanerosApp
                 comm.Parameters.AddWithValue("@nocaja", Nocaja);
                 comm.Parameters.AddWithValue("@empresa", Empresa);
                 comm.Parameters.AddWithValue("@estatus", Estatus);
-                comm.Parameters.AddWithValue("@placas", Empresa);
-                comm.Parameters.AddWithValue("@comentarios", Estatus);
+                comm.Parameters.AddWithValue("@placas", placa);
+                comm.Parameters.AddWithValue("@comentarios", comentarios);
 
 
                 comm.ExecuteNonQuery();

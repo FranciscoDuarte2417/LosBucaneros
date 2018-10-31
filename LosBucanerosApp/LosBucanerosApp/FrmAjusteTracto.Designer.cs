@@ -46,6 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gbTracto = new System.Windows.Forms.GroupBox();
+            this.txtcomentario = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtplaca = new System.Windows.Forms.TextBox();
@@ -65,8 +67,6 @@
             this.pbaltas = new System.Windows.Forms.PictureBox();
             this.pbmodificaciones = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.txtcomentario = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.gbTracto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamara)).BeginInit();
@@ -288,12 +288,33 @@
             this.gbTracto.Controls.Add(this.lblnombreoperador);
             this.gbTracto.Controls.Add(this.label3);
             this.gbTracto.Controls.Add(this.label4);
-            this.gbTracto.Enabled = false;
             this.gbTracto.Location = new System.Drawing.Point(7, 104);
             this.gbTracto.Name = "gbTracto";
             this.gbTracto.Size = new System.Drawing.Size(318, 369);
             this.gbTracto.TabIndex = 20;
             this.gbTracto.TabStop = false;
+            // 
+            // txtcomentario
+            // 
+            this.txtcomentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcomentario.Location = new System.Drawing.Point(120, 172);
+            this.txtcomentario.MaxLength = 150;
+            this.txtcomentario.Multiline = true;
+            this.txtcomentario.Name = "txtcomentario";
+            this.txtcomentario.Size = new System.Drawing.Size(191, 60);
+            this.txtcomentario.TabIndex = 25;
+            this.txtcomentario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(7, 175);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 18);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Comentarios";
             // 
             // comboBox2
             // 
@@ -530,28 +551,6 @@
             this.lblusuario.Size = new System.Drawing.Size(21, 20);
             this.lblusuario.TabIndex = 30;
             this.lblusuario.Text = "\"\"";
-            // 
-            // txtcomentario
-            // 
-            this.txtcomentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcomentario.Location = new System.Drawing.Point(120, 172);
-            this.txtcomentario.MaxLength = 150;
-            this.txtcomentario.Multiline = true;
-            this.txtcomentario.Name = "txtcomentario";
-            this.txtcomentario.Size = new System.Drawing.Size(191, 60);
-            this.txtcomentario.TabIndex = 25;
-            this.txtcomentario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(7, 175);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 18);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Comentarios";
             // 
             // FrmAjusteTracto
             // 

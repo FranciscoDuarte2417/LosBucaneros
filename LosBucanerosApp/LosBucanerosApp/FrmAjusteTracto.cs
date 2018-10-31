@@ -108,6 +108,22 @@ namespace LosBucanerosApp
             auxiliar = "insert";
             rbActivo.Checked = true;
             cmbEmpresa.SelectedIndex = 0;
+            cmbNomenclatura.SelectedIndex = -1;
+            cmbNomenclatura.Enabled = true;
+            cmbEmpresa.Enabled = true;
+            txtNoTracto.Enabled = true;
+            txtplaca.Enabled = true;
+            
+            txtNoTracto.Text = "";
+            status = "";
+            rbActivo.Enabled = true;
+            rbInactivo.Enabled = true;
+            rbActivo.Checked = false;
+            rbInactivo.Checked = false;
+            
+
+            txtplaca.Text = "";
+            txtcomentario.Text = "";
         }
         private void rbActivo_CheckedChanged(object sender, EventArgs e)
         {
@@ -120,14 +136,22 @@ namespace LosBucanerosApp
         private void btnCancelar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             limpiarcampos();
-            gbTracto.Enabled = false;
         }
         private void pbmodificaciones_Click(object sender, EventArgs e)
         {
             limpiarcampos();
             gbTracto.Enabled = true;
             auxiliar = "update";
-          
+            cmbNomenclatura.Enabled = true;
+            cmbEmpresa.Enabled = true;
+            txtNoTracto.Enabled = true;
+            txtplaca.Enabled = true;
+
+            txtNoTracto.Text = "";
+            status = "";
+            rbActivo.Enabled = true;
+            rbInactivo.Enabled = true;
+
 
             int index = cmbNomenclatura.FindString(nomenclatura);
             cmbNomenclatura.SelectedIndex = index;
@@ -200,7 +224,7 @@ namespace LosBucanerosApp
 
             for (int i = 0; i < ids.Count; i++)
             {
-                gbTracto.Enabled = false;
+                
                 limpiarcampos();
                 int index = cmbNomenclatura.FindString(nomenclatura);
                 cmbNomenclatura.SelectedIndex = index;
@@ -402,11 +426,18 @@ namespace LosBucanerosApp
         {
             cmbEmpresa.SelectedIndex = -1;
             cmbNomenclatura.SelectedIndex = -1;
+            cmbNomenclatura.Enabled = false;
+            cmbEmpresa.Enabled = false;
+            txtNoTracto.Enabled = false;
+            txtplaca.Enabled = false;
+            txtcomentario.Enabled = false;
             txtNoTracto.Text = "";
             status = "";
             rbActivo.Checked = false;
             rbInactivo.Checked = false;
-            gbTracto.Enabled = false;
+            rbActivo.Enabled = false;
+            rbInactivo.Enabled = false;
+            
             txtplaca.Text = "";
             txtcomentario.Text = "";
         }
@@ -430,7 +461,6 @@ namespace LosBucanerosApp
             dataGridView1.ReadOnly = true;
 
             limpiarcampos();
-            gbTracto.Enabled = false;
             if (dataGridView1.SelectedCells.Count > 0 && comboBox2.SelectedIndex == 0)
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
