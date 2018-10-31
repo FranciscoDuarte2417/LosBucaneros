@@ -17,6 +17,7 @@ namespace LosBucanerosApp
             InitializeComponent();
         }
         ClsOperadores objClsOperadores = new ClsOperadores();
+        ClsTractos objClsTractos = new ClsTractos();
         private void FrmRegistroViaje_Load(object sender, EventArgs e)
         {
             CargarOperador();
@@ -64,7 +65,18 @@ namespace LosBucanerosApp
             cmbOperador.ValueMember = "Id";
             cmbOperador.DisplayMember = "Nombre";
             cmbOperador.SelectedIndex = -1;
+          
 
+
+        }
+        public void CargarTractosPorOperador()
+        {
+
+            txtTracto.Text = "";
+            objClsTractos.Id = Convert.ToInt32(cmbOperador.SelectedValue);
+            objClsTractos.CargarTractoPorOperador();
+            txtTracto.Text = objClsTractos.Notracto;
+            
 
         }
 
@@ -93,7 +105,7 @@ namespace LosBucanerosApp
             {
                 cmbOperador.SelectedIndex = index;
                 cmbOperador.BackColor = Color.White;
-
+                CargarTractosPorOperador();
             }
             else
             {
@@ -104,7 +116,8 @@ namespace LosBucanerosApp
 
         private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+        
         }
     }
 }

@@ -199,6 +199,39 @@ namespace LosBucanerosApp
                 //throw;
             }
         }
+
+        public void CargarTractoPorOperador()
+        {  
+
+            try
+            { //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+                comm = new SqlCommand("[spPopulateTractoPorOperador]", conn);
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //
+                comm.CommandType = CommandType.StoredProcedure;
+                 comm.Parameters.AddWithValue("@id", Id);
+
+                //
+                SqlDataReader dr = comm.ExecuteReader();
+                if (dr.Read())
+                {
+                    Notracto = dr["Tracto"].ToString();
+                
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        
+        }
         public void populateGridTrucks()
         {
             try
