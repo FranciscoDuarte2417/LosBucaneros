@@ -16,10 +16,10 @@ namespace LosBucanerosApp
         {
             InitializeComponent();
         }
-
+        ClsOperadores objClsOperadores = new ClsOperadores();
         private void FrmRegistroViaje_Load(object sender, EventArgs e)
         {
-
+            CargarOperador();
         }
         string tipo;
         private void cmbTipoFlete_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,6 +56,55 @@ namespace LosBucanerosApp
             cmbOperador.Enabled = true;
             txtTracto.Enabled = true;
         }
+        public void CargarOperador()
+        {
+            cmbOperador.DataSource = null;
+            objClsOperadores.populateComboOperadores();
+            cmbOperador.DataSource = objClsOperadores.dt;
+            cmbOperador.ValueMember = "Id";
+            cmbOperador.DisplayMember = "Nombre";
+            cmbOperador.SelectedIndex = -1;
 
+
+        }
+
+        private void cmbTipoFlete_Leave(object sender, EventArgs e)
+        {
+            int index = cmbTipoFlete.FindString(cmbTipoFlete.Text);
+
+            if (index >= 0)
+            {
+                cmbTipoFlete.SelectedIndex = index;
+                cmbTipoFlete.BackColor = Color.White;
+              
+            }
+            else
+            {
+                cmbTipoFlete.BackColor = Color.Red;
+
+            }
+        }
+
+        private void cmbOperador_Leave(object sender, EventArgs e)
+        {
+            int index = cmbOperador.FindString(cmbOperador.Text);
+
+            if (index >= 0)
+            {
+                cmbOperador.SelectedIndex = index;
+                cmbOperador.BackColor = Color.White;
+
+            }
+            else
+            {
+                cmbOperador.BackColor = Color.Red;
+
+            }
+        }
+
+        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
