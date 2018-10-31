@@ -14,14 +14,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="LosBucanerosApp.exe.manifest" size="21149">
+    <dependentAssembly dependencyType="install" codebase="LosBucanerosApp.exe.manifest" size="21150">
       <assemblyIdentity name="LosBucanerosApp.exe" version="1.0.0.19" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="amd64" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oVfmVpEIbHuCcL7+guU6aa7g0bASj6oz44YZTD0OxQk=</dsig:DigestValue>
+        <dsig:DigestValue>aC0frfd1HZI3YD2dH3lFq7SRpiyY/WeKwvGn8sKWI0o=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

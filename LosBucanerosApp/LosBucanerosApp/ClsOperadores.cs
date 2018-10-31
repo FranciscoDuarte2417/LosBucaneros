@@ -500,6 +500,34 @@ namespace LosBucanerosApp
                 //throw;
             }
         }
+        public void populateComboOperadores()
+        {
+            try
+            { //establecer parametros de conexion
+                conn = new SqlConnection(objrutas.connstring);
+                //abrir conexion con parametros previamente asignados
+                conn.Open();
+                //asignar comando de sql
+                comm = new SqlCommand("[spPopulateComboOperadoresFletes]", conn);
+                //asignar conexion al comando
+                comm.Connection = conn;
+                //
+                comm.CommandType = CommandType.StoredProcedure;
+
+
+                //
+                adp = new SqlDataAdapter(comm);
+                dt = new DataTable();
+                adp.Fill(dt);
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public void updateDriverimage()
         {

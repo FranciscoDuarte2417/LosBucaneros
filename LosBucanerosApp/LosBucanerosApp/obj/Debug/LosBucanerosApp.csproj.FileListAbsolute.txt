@@ -309,3 +309,7 @@ C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.pdb
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmAmazonPhoto.resources
 C:\Users\Administrador\Source\Repos\FranciscoDuarte2417\LosBuca\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmDescuento.resources
+C:\Users\Francisco Duarte\Source\Repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmAmazonPhoto.resources
+C:\Users\Francisco Duarte\Source\Repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmDescuento.resources
+C:\Users\Francisco Duarte\Source\Repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmRegistroViaje.resources
+C:\Users\Francisco Duarte\Source\Repos\FranciscoDuarte2417\LosBucaneros\LosBucanerosApp\LosBucanerosApp\obj\Debug\LosBucanerosApp.FrmRegViaje.resources

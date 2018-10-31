@@ -24,10 +24,27 @@ namespace LosBucanerosApp
    
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-          //  pbCelulares.Image = LosBucanerosApp.Properties.Resources.celulares;
-          //  pbajustes.Image = LosBucanerosApp.Properties.Resources.ajustes;
+            //  pbCelulares.Image = LosBucanerosApp.Properties.Resources.celulares;
+            //  pbajustes.Image = LosBucanerosApp.Properties.Resources.ajustes;
+
+            if (Permiso=="SVC")
+            {
+                permisoSVC();
+            }
+
             lblusuario.Text = "Bienvenido: " + Nombre + " " + Apellido;
             timerAlertas.Start();
+        }
+
+        public void permisoSVC()
+        {
+            btnSVC.Visible = true;
+            btnCelulares.Enabled = false;
+            btnTrafico.Enabled = false;
+            btnRegistros.Enabled = false;
+            
+            
+        
         }
 
         private void pbCelulares_MouseHover(object sender, EventArgs e)
@@ -113,6 +130,12 @@ namespace LosBucanerosApp
             }
 
             
+        }
+
+        private void btnFletes_Click(object sender, EventArgs e)
+        {
+            FrmRegViaje objmostrar = new FrmRegViaje();
+            objmostrar.ShowDialog();
         }
 
         private void pbajustes_MouseLeave(object sender, EventArgs e)

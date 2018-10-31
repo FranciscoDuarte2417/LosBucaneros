@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAjusteUsuarios));
             this.gbGridOperadores = new System.Windows.Forms.GroupBox();
+            this.lblcont = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbcriteriobusqueda = new System.Windows.Forms.ComboBox();
             this.txtBuscaOperadores = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.pbmodificaciones = new System.Windows.Forms.PictureBox();
             this.pbaltas = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.lblcont = new System.Windows.Forms.Label();
             this.gbGridOperadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbconsultas)).BeginInit();
@@ -92,6 +92,15 @@
             this.gbGridOperadores.TabIndex = 11;
             this.gbGridOperadores.TabStop = false;
             this.gbGridOperadores.Enter += new System.EventHandler(this.gbGridOperadores_Enter);
+            // 
+            // lblcont
+            // 
+            this.lblcont.AutoSize = true;
+            this.lblcont.Location = new System.Drawing.Point(374, 17);
+            this.lblcont.Name = "lblcont";
+            this.lblcont.Size = new System.Drawing.Size(38, 13);
+            this.lblcont.TabIndex = 24;
+            this.lblcont.Text = "lblcont";
             // 
             // label7
             // 
@@ -249,7 +258,10 @@
             this.cmbPermisos.FormattingEnabled = true;
             this.cmbPermisos.Items.AddRange(new object[] {
             "Administrador",
-            "General",
+            "SVC",
+            "Trafico",
+            "Monitorista",
+            "Administrador Monitorista",
             "Invitado"});
             this.cmbPermisos.Location = new System.Drawing.Point(98, 204);
             this.cmbPermisos.Name = "cmbPermisos";
@@ -483,15 +495,6 @@
             this.lblusuario.Size = new System.Drawing.Size(21, 20);
             this.lblusuario.TabIndex = 20;
             this.lblusuario.Text = "\"\"";
-            // 
-            // lblcont
-            // 
-            this.lblcont.AutoSize = true;
-            this.lblcont.Location = new System.Drawing.Point(374, 17);
-            this.lblcont.Name = "lblcont";
-            this.lblcont.Size = new System.Drawing.Size(38, 13);
-            this.lblcont.TabIndex = 24;
-            this.lblcont.Text = "lblcont";
             // 
             // FrmAjusteUsuarios
             // 
