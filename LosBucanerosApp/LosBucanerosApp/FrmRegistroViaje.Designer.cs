@@ -346,6 +346,7 @@
             // 
             // dtpHora
             // 
+            this.dtpHora.Checked = false;
             this.dtpHora.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHora.Location = new System.Drawing.Point(398, 206);
