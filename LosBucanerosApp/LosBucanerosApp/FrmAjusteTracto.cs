@@ -18,6 +18,7 @@ namespace LosBucanerosApp
         string id, nomenclatura,tractogeneral, notracto, empresa, estatus;
         string[] datos;
         ClsTractos objTractos = new ClsTractos();
+        ClsCajas objcajas = new ClsCajas();
         public FrmAjusteTracto(string nombre, string apellido, string permiso)
         {
             InitializeComponent();
@@ -35,28 +36,45 @@ namespace LosBucanerosApp
             pbCamara.Image = LosBucanerosApp.Properties.Resources.camara;
             lblusuario.Text = "Bienvenido: " + Nombre + " " + Apellido;
             cmbcriteriobusqueda.SelectedIndex = -1;
+            comboBox2.SelectedIndex = 0;
             CargarGrid();
         }
         public void CargarGrid()
         {
-           // int x=  dgvTractos.NewRowIndex;
-            dataGridView1.DataSource = null;
-            objTractos.populateGridTrucks();
-           dataGridView1.DataSource = objTractos.dt;
+            if (comboBox2.SelectedIndex == 0)
+            {
+                // int x=  dgvTractos.NewRowIndex;
+                dataGridView1.DataSource = null;
+                objTractos.populateGridTrucks();
+                dataGridView1.DataSource = objTractos.dt;
 
-            DataGridViewCellStyle style = new DataGridViewCellStyle();
+                DataGridViewCellStyle style = new DataGridViewCellStyle();
 
-            Font fuente = new Font(dataGridView1.Font, FontStyle.Bold);
+                Font fuente = new Font(dataGridView1.Font, FontStyle.Bold);
 
 
 
-          dataGridView1.Columns["Tracto"].DefaultCellStyle.ForeColor = Color.Blue;
-            dataGridView1.Columns["Tracto"].DefaultCellStyle.Font = fuente;
+                dataGridView1.Columns["Tracto"].DefaultCellStyle.ForeColor = Color.Blue;
+                dataGridView1.Columns["Tracto"].DefaultCellStyle.Font = fuente;
 
-          
-            //   dgvTractos.Columns["Estatus"].DefaultCellStyle.ForeColor = Color.Red;
-            // dgvTractos.Columns["Estatus"].DefaultCellStyle.Font = fuente;
-            dataGridView1.ClearSelection();
+
+                //   dgvTractos.Columns["Estatus"].DefaultCellStyle.ForeColor = Color.Red;
+                // dgvTractos.Columns["Estatus"].DefaultCellStyle.Font = fuente;
+                dataGridView1.ClearSelection();
+            }
+            else
+            {
+                // int x=  dgvTractos.NewRowIndex;
+                dataGridView1.DataSource = null;
+                objcajas.populateGridCajas();
+                dataGridView1.DataSource = objcajas.dt;
+
+                DataGridViewCellStyle style = new DataGridViewCellStyle();
+
+                Font fuente = new Font(dataGridView1.Font, FontStyle.Bold);
+                
+                dataGridView1.ClearSelection();
+            }
 
         }
         private void pbaltas_MouseHover(object sender, EventArgs e)
@@ -246,89 +264,36 @@ namespace LosBucanerosApp
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (cmbEmpresa.SelectedIndex<0  || txtNoTracto.Text == "" || cmbNomenclatura.SelectedIndex < 0 || status == "")
+            if (cmbEmpresa.SelectedIndex < 0 || txtNoTracto.Text == "" || cmbNomenclatura.SelectedIndex < 0 || status == "")
             {
                 MessageBox.Show("No se Aceptan Campos Vacios", "Error de Validacion");
             }
             else
             {
-                if (auxiliar=="insert")
+                if (comboBox2.SelectedIndex == 0)
                 {
-                    //mandar parametros a la clase
-                    objTractos.Nomenclatura = cmbNomenclatura.SelectedItem.ToString(); ;
-                    objTractos.Notracto = txtNoTracto.Text;
-                    objTractos.Empresa =cmbEmpresa.SelectedItem.ToString();
-                    objTractos.Estatus = "Disponible";
-                    //llamar metodo de la clase
-                    objTractos.insertTruck();
+                    if (auxiliar == "insert")
+                    {
+                        //mandar parametros a la clase
+                        objTractos.Nomenclatura = cmbNomenclatura.SelectedItem.ToString(); ;
+                        objTractos.Notracto = txtNoTracto.Text;
+                        objTractos.Empresa = cmbEmpresa.SelectedItem.ToString();
+                        objTractos.Estatus = "Disponible";
+                        //llamar metodo de la clase
+                        objTractos.insertTruck();
 
-                    //Verificar si se hizo correctamente con la variable resultado
-                    if (objTractos.resultado == 1)
-                    {
-
-                        MessageBox.Show("Registro Almacenado Con Exito", "Almacenamiento Exitoso");
-                        // dgvUsuarios.DataSource = null;
-                        CargarGrid();
-                        limpiarcampos();
-                    }
-                    else if (objTractos.resultado == 0)
-                    {
-                        MessageBox.Show("Error Al Guardar Tracto Camion");
-                        CargarGrid();
-                        limpiarcampos();
-                    }
-                    else if (objTractos.resultado == 2)
-                    {
-                        MessageBox.Show("Error: Ya existe el tractocamineto que desea registrar");
-                    }
-
-
-                }
-                else if (auxiliar=="update")
-                {
-                    if (cmbEmpresa.SelectedIndex < 0 || txtNoTracto.Text == "" || cmbNomenclatura.SelectedIndex < 0 || status == "")
-                    {
-                        MessageBox.Show("No se Aceptan Campos Vacios", "Error de Validacion");
-                    }
-                    else
-                    {
-                   //asignar valores a valariables de  clase
-                    objTractos.Id = Convert.ToInt32(id);
-                    objTractos.Nomenclatura = cmbNomenclatura.SelectedItem.ToString();
-                    objTractos.Notracto = txtNoTracto.Text;
-                    objTractos.Empresa = cmbEmpresa.SelectedItem.ToString();
-                    DialogResult M = MessageBox.Show("Desea guardar el tracto con el mismo estatus?","Estatus",MessageBoxButtons.YesNo);
-                    if (M == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        
-                    }
-                    else if (M == System.Windows.Forms.DialogResult.No)
-                    {
-                        if (status == "Disponible")
+                        //Verificar si se hizo correctamente con la variable resultado
+                        if (objTractos.resultado == 1)
                         {
-                            status = "Activo";
-                            
+
+                            MessageBox.Show("Registro Almacenado Con Exito", "Almacenamiento Exitoso");
+                            // dgvUsuarios.DataSource = null;
+                            CargarGrid();
+                            limpiarcampos();
                         }
-                        else if (status == "Activo")
-                        {
-                            status = "Disponible";
-                        }
-                    }
-                    objTractos.Estatus = status;
-                    //manda llamar el metodo de la clase
-                    objTractos.updateTruck();
-                    //comprobamos si se realizo con exio
-                    if (objTractos.resultado == 1)
-                    {
-                        MessageBox.Show("Registro Actualizado Con Exito", "Modificacion Exitosa");
-                        //dgvUsuarios.DataSource = null;
-                        limpiarcampos();
-                        CargarGrid();
-                       
-                    }
                         else if (objTractos.resultado == 0)
                         {
-                            MessageBox.Show("Error Al Actualizar Tracto Camion");
+                            MessageBox.Show("Error Al Guardar Tracto Camion");
                             CargarGrid();
                             limpiarcampos();
                         }
@@ -336,8 +301,101 @@ namespace LosBucanerosApp
                         {
                             MessageBox.Show("Error: Ya existe el tractocamineto que desea registrar");
                         }
+
+
+                    }
+                    else if (auxiliar == "update")
+                    {
+                        if (cmbEmpresa.SelectedIndex < 0 || txtNoTracto.Text == "" || cmbNomenclatura.SelectedIndex < 0 || status == "")
+                        {
+                            MessageBox.Show("No se Aceptan Campos Vacios", "Error de Validacion");
+                        }
+                        else
+                        {
+                            //asignar valores a valariables de  clase
+                            objTractos.Id = Convert.ToInt32(id);
+                            objTractos.Nomenclatura = cmbNomenclatura.SelectedItem.ToString();
+                            objTractos.Notracto = txtNoTracto.Text;
+                            objTractos.Empresa = cmbEmpresa.SelectedItem.ToString();
+                            DialogResult M = MessageBox.Show("Desea guardar el tracto con el mismo estatus?", "Estatus", MessageBoxButtons.YesNo);
+                            if (M == System.Windows.Forms.DialogResult.Yes)
+                            {
+
+                            }
+                            else if (M == System.Windows.Forms.DialogResult.No)
+                            {
+                                if (status == "Disponible")
+                                {
+                                    status = "Activo";
+
+                                }
+                                else if (status == "Activo")
+                                {
+                                    status = "Disponible";
+                                }
+                            }
+                            objTractos.Estatus = status;
+                            //manda llamar el metodo de la clase
+                            objTractos.updateTruck();
+                            //comprobamos si se realizo con exio
+                            if (objTractos.resultado == 1)
+                            {
+                                MessageBox.Show("Registro Actualizado Con Exito", "Modificacion Exitosa");
+                                //dgvUsuarios.DataSource = null;
+                                limpiarcampos();
+                                CargarGrid();
+
+                            }
+                            else if (objTractos.resultado == 0)
+                            {
+                                MessageBox.Show("Error Al Actualizar Tracto Camion");
+                                CargarGrid();
+                                limpiarcampos();
+                            }
+                            else if (objTractos.resultado == 2)
+                            {
+                                MessageBox.Show("Error: Ya existe el tractocamineto que desea registrar");
+                            }
+                        }
                     }
                 }
+                else
+                {
+                    if (auxiliar == "insert")
+                    {
+                        //mandar parametros a la clase
+                        objcajas.Nomenclatura = cmbNomenclatura.SelectedItem.ToString(); ;
+                        objcajas.Nocaja = txtNoTracto.Text;
+                        objcajas.Empresa = cmbEmpresa.SelectedItem.ToString();
+                        objcajas.Estatus = "Disponible";
+                        objcajas.Placa = txtplaca.Text;
+                        objcajas.Comentarios = txtcomentario.Text;
+                        //llamar metodo de la clase
+                        objcajas.InsertCaja();
+
+                        //Verificar si se hizo correctamente con la variable resultado
+                        if (objcajas.resultado == 1)
+                        {
+
+                            MessageBox.Show("Registro Almacenado Con Exito", "Almacenamiento Exitoso");
+                            // dgvUsuarios.DataSource = null;
+                            CargarGrid();
+                            limpiarcampos();
+                        }
+                        else if (objcajas.resultado == 0)
+                        {
+                            MessageBox.Show("Error Al Guardar Caja");
+                            CargarGrid();
+                            limpiarcampos();
+                        }
+                        else if (objTractos.resultado == 2)
+                        {
+                            MessageBox.Show("Error: Ya existe la caja que desea registrar");
+                        }
+
+
+                    }
+                 }
             }
         }
         public void limpiarcampos()
@@ -349,14 +407,31 @@ namespace LosBucanerosApp
             rbActivo.Checked = false;
             rbInactivo.Checked = false;
             gbTracto.Enabled = false;
+            txtplaca.Text = "";
+            txtcomentario.Text = "";
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox2.SelectedIndex == 1)
+            {
+                txtcomentario.Enabled = true;
+                label3.Text = "No. Caja";
+            }
+            else
+            {
+                txtcomentario.Enabled = false;
+                label3.Text = "No. Tracto";
+            }
+        }
+
         private void dgvTractos_SelectionChanged(object sender, EventArgs e)
         {
             dataGridView1.ReadOnly = true;
 
             limpiarcampos();
             gbTracto.Enabled = false;
-            if (dataGridView1.SelectedCells.Count > 0)
+            if (dataGridView1.SelectedCells.Count > 0 && comboBox2.SelectedIndex == 0)
             {
                 int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
@@ -369,12 +444,21 @@ namespace LosBucanerosApp
                 datos = tractogeneral.Split('-');
                 nomenclatura = datos[0];
                 notracto = datos[1];
-                //asignar valores a textospara edicion
-                
-                //
+            }
+            else if (dataGridView1.SelectedCells.Count > 0 && comboBox2.SelectedIndex == 1)
+            {
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
 
+                objcajas.Id = Convert.ToInt32(selectedRow.Cells["IdCaja"].Value);
+                tractogeneral = Convert.ToString(selectedRow.Cells["Caja"].Value);
+                objcajas.Empresa = Convert.ToString(selectedRow.Cells["Empresa"].Value);
+                objcajas.Estatus = Convert.ToString(selectedRow.Cells["Estatus"].Value);
+                objcajas.Comentarios = Convert.ToString(selectedRow.Cells["Comentarios"].Value);
 
-              
+                datos = tractogeneral.Split('-');
+                objcajas.Nomenclatura = datos[0];
+                objcajas.Nocaja = datos[1];
 
 
             }
