@@ -163,6 +163,11 @@ namespace LosBucanerosApp
             }
         }
 
+        string idresponsiva = "";
+        string tipodescuento = "";
+        string totaldescuento = "";
+        string fecha = "";
+        string comentarios = "";
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -209,12 +214,13 @@ namespace LosBucanerosApp
                             conn.Close();
                             FrmDescuento Descuento = new FrmDescuento(id,operador,tiporesponsiva);
                             Descuento.ShowDialog();
+                            this.Show();
                             //establecer parametros de conexion
                             conn = new SqlConnection(objrutas.connstring);
                             //abrir conexion con parametros previamente asignados
                             conn.Open();
                             //asignar comando de sql
-                            comm = new SqlCommand("spInsertDescuento", conn);
+                            comm = new SqlCommand("spConsultaDescuento", conn);
                             //asignar conexion al comando
                             comm.Connection = conn;
                             //
@@ -226,11 +232,11 @@ namespace LosBucanerosApp
                             conn.Close();
                             row = dt.Rows[0];
                             id = row[0].ToString();
-                            string idresponsiva = row[1].ToString();
-                            string tipodescuento = row[2].ToString();
-                            string totaldescuento = row[3].ToString();
-                            string fecha = row[4].ToString();
-                            string comentarios = row[5].ToString();
+                            idresponsiva = row[1].ToString();
+                            tipodescuento = row[2].ToString();
+                            totaldescuento = row[3].ToString();
+                            fecha = row[4].ToString();
+                            comentarios = row[5].ToString();
                             
                         }
                         catch (Exception)
@@ -241,11 +247,13 @@ namespace LosBucanerosApp
                         X = MessageBox.Show("¿El empleado sera dado de baja?", "Baja Responsiva", MessageBoxButtons.YesNoCancel);
                         if (X == DialogResult.Yes)
                         {
-                            aux = 3; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                            //aux = 3; CancelarResponsiva();
+                            objrutas.CorreoCancelacion(id,idresponsiva,tipodescuento,totaldescuento,fecha,comentarios);
                         }
                         else if (X == DialogResult.No)
                         {
-                            aux = 4; CancelarResponsiva(); objrutas.CorreoCancelacion();
+                            //aux = 4; CancelarResponsiva();
+                            objrutas.CorreoCancelacion(id, idresponsiva, tipodescuento, totaldescuento, fecha, comentarios);
                         }
                     }
                 }
