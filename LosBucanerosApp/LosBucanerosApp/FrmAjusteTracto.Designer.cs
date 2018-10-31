@@ -46,10 +46,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.gbTracto = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtplaca = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbNomenclatura = new System.Windows.Forms.ComboBox();
             this.pbCamara = new System.Windows.Forms.PictureBox();
             this.txtBuscaOperadores = new System.Windows.Forms.TextBox();
             this.gbGridOperadores = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblcont = new System.Windows.Forms.Label();
             this.btnlimpiargrid = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -59,12 +65,8 @@
             this.pbaltas = new System.Windows.Forms.PictureBox();
             this.pbmodificaciones = new System.Windows.Forms.PictureBox();
             this.lblusuario = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.txtcomentario = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.gbTracto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamara)).BeginInit();
@@ -141,7 +143,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(5, 180);
+            this.label1.Location = new System.Drawing.Point(5, 238);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 20;
@@ -155,7 +157,7 @@
             this.cmbEmpresa.Items.AddRange(new object[] {
             "TRANSBORDER",
             "TRANION"});
-            this.cmbEmpresa.Location = new System.Drawing.Point(122, 180);
+            this.cmbEmpresa.Location = new System.Drawing.Point(122, 238);
             this.cmbEmpresa.Name = "cmbEmpresa";
             this.cmbEmpresa.Size = new System.Drawing.Size(191, 26);
             this.cmbEmpresa.TabIndex = 3;
@@ -164,7 +166,7 @@
             // 
             this.rbInactivo.AutoSize = true;
             this.rbInactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbInactivo.Location = new System.Drawing.Point(213, 220);
+            this.rbInactivo.Location = new System.Drawing.Point(213, 275);
             this.rbInactivo.Name = "rbInactivo";
             this.rbInactivo.Size = new System.Drawing.Size(76, 22);
             this.rbInactivo.TabIndex = 5;
@@ -178,7 +180,7 @@
             // 
             this.rbActivo.AutoSize = true;
             this.rbActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbActivo.Location = new System.Drawing.Point(122, 217);
+            this.rbActivo.Location = new System.Drawing.Point(122, 275);
             this.rbActivo.Name = "rbActivo";
             this.rbActivo.Size = new System.Drawing.Size(66, 22);
             this.rbActivo.TabIndex = 4;
@@ -191,7 +193,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(223, 248);
+            this.btnGuardar.Location = new System.Drawing.Point(223, 306);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 31);
             this.btnGuardar.TabIndex = 6;
@@ -257,7 +259,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(5, 217);
+            this.label4.Location = new System.Drawing.Point(5, 275);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 18);
             this.label4.TabIndex = 0;
@@ -268,9 +270,11 @@
             // 
             this.gbTracto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbTracto.Controls.Add(this.txtcomentario);
+            this.gbTracto.Controls.Add(this.label9);
             this.gbTracto.Controls.Add(this.comboBox2);
             this.gbTracto.Controls.Add(this.label8);
-            this.gbTracto.Controls.Add(this.textBox1);
+            this.gbTracto.Controls.Add(this.txtplaca);
             this.gbTracto.Controls.Add(this.label2);
             this.gbTracto.Controls.Add(this.cmbNomenclatura);
             this.gbTracto.Controls.Add(this.txtNoTracto);
@@ -290,6 +294,53 @@
             this.gbTracto.Size = new System.Drawing.Size(318, 369);
             this.gbTracto.TabIndex = 20;
             this.gbTracto.TabStop = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "TRACTO",
+            "CAJA"});
+            this.comboBox2.Location = new System.Drawing.Point(122, 45);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(191, 26);
+            this.comboBox2.TabIndex = 23;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(5, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 18);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Tipo de Registro";
+            // 
+            // txtplaca
+            // 
+            this.txtplaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtplaca.Location = new System.Drawing.Point(122, 140);
+            this.txtplaca.MaxLength = 10;
+            this.txtplaca.Name = "txtplaca";
+            this.txtplaca.Size = new System.Drawing.Size(191, 24);
+            this.txtplaca.TabIndex = 21;
+            this.txtplaca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(9, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 18);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "No. Placa:";
             // 
             // cmbNomenclatura
             // 
@@ -343,6 +394,31 @@
             this.gbGridOperadores.Size = new System.Drawing.Size(665, 369);
             this.gbGridOperadores.TabIndex = 21;
             this.gbGridOperadores.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(19, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 18);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Busqueda Por:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "No. Tracto",
+            "Estatus"});
+            this.comboBox1.Location = new System.Drawing.Point(21, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 32;
             // 
             // lblcont
             // 
@@ -455,76 +531,27 @@
             this.lblusuario.TabIndex = 30;
             this.lblusuario.Text = "\"\"";
             // 
-            // textBox1
+            // txtcomentario
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(122, 140);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 24);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtcomentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcomentario.Location = new System.Drawing.Point(120, 172);
+            this.txtcomentario.MaxLength = 150;
+            this.txtcomentario.Multiline = true;
+            this.txtcomentario.Name = "txtcomentario";
+            this.txtcomentario.Size = new System.Drawing.Size(191, 60);
+            this.txtcomentario.TabIndex = 25;
+            this.txtcomentario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label2
+            // label9
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(9, 143);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 18);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "No. Placa:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(19, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 18);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Busqueda Por:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "No. Tracto",
-            "Estatus"});
-            this.comboBox1.Location = new System.Drawing.Point(21, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 32;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "TRACTO",
-            "CAJA"});
-            this.comboBox2.Location = new System.Drawing.Point(122, 45);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 26);
-            this.comboBox2.TabIndex = 23;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(5, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 18);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Tipo de Registro";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(7, 175);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 18);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Comentarios";
             // 
             // FrmAjusteTracto
             // 
@@ -598,9 +625,11 @@
         private System.Windows.Forms.Label lblcont;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtplaca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtcomentario;
+        private System.Windows.Forms.Label label9;
     }
 }

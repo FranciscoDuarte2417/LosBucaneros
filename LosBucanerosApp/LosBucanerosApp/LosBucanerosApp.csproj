@@ -105,6 +105,7 @@
     <Compile Include="ClsAdministrativos.cs" />
     <Compile Include="ClsAlmacenEquipos.cs" />
     <Compile Include="ClsAsignacionNumerosSIM.cs" />
+    <Compile Include="ClsCajas.cs" />
     <Compile Include="ClsCoordinadores.cs" />
     <Compile Include="ClsLineas.cs" />
     <Compile Include="ClsOperadores.cs" />
