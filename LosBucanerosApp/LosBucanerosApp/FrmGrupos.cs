@@ -43,49 +43,7 @@ namespace LosBucanerosApp
 
         private void btnregistrar_Click(object sender, EventArgs e)
         {
-            if (txtnombregrupo.Text != "")
-            {
-                try
-                {
-                    //establecer parametros de conexion
-                    conn = new SqlConnection(objrutas.connstring);
-                    //abrir conexion con parametros previamente asignados
-                    conn.Open();
-                    //asignar comando de sql
-                    comm = new SqlCommand();
-                    //asignar conexion al comando
-                    comm.Connection = conn;
-                    //comando de tipo procedimiento almacenado
-                    comm.CommandType = CommandType.StoredProcedure;
-                    //nombre del procedimiento almacenado
-                    comm.CommandText = "spInsertGrupo";
-                    //enviamos los parametros del procedimiento almacenado
-                    comm.Parameters.AddWithValue("@grupo", txtnombregrupo.Text);
-                    comm.Parameters.AddWithValue("@comentarios", txtcomentario.Text);
-                    
-                    comm.ExecuteNonQuery();
-                    resultado = 1;
-                    conn.Close();
-
-                    
-                    llenarComboGrupos();
-                    txtcomentario.Text = "";
-                    txtnombregrupo.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message == "Tracto Duplicado")
-                    {
-                        resultado = 2;
-                    }
-                    else
-                    {
-                        resultado = 0;
-                    }
-
-                    //throw;
-                }
-            }
+            
         }
 
         public void llenarComboGrupos()
@@ -237,6 +195,14 @@ namespace LosBucanerosApp
                 groupBox2.Enabled = false;
                 MessageBox.Show("Seleccione un grupo en la lista");
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmRegGrupo objreg = new FrmRegGrupo();
+            objreg.ShowDialog();
+            llenarComboGrupos();
+            this.Show();
         }
 
         public void llenarListGrupo()

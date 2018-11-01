@@ -151,6 +151,12 @@ namespace LosBucanerosApp
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmFlotilla objflotilla = new FrmFlotilla();
+            objflotilla.Show();
+        }
+
         private void PbUsuarios_MouseLeave(object sender, EventArgs e)
         {
             PbUsuarios.Image = LosBucanerosApp.Properties.Resources.user;
