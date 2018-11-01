@@ -302,11 +302,15 @@ namespace LosBucanerosApp
         }
 
         Image img;
-      
-        public FrmRegViaje()
+        
+
+        public FrmRegViaje(string nombre, string apellido, string permiso)
         {
             InitializeComponent();
-         
+            Nombre = nombre;
+            Apellido = apellido;
+            Permiso = permiso;
+
         }
 
         private void FrmAjusteLineas_Load(object sender, EventArgs e)
@@ -348,7 +352,7 @@ namespace LosBucanerosApp
 
             lbltitulo.Text = "ALTAS - LINEA";
             lbltitulo.ForeColor = Color.Blue;
-            FrmRegistroViaje objmostrar = new FrmRegistroViaje();
+            FrmRegistroViaje objmostrar = new FrmRegistroViaje(Nombre,Apellido,Permiso);
             objmostrar.ShowDialog();
            
               

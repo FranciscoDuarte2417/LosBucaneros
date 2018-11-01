@@ -67,6 +67,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtPlacas = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.txtcomentarios = new System.Windows.Forms.RichTextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.chkOperadorPendiente = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbltipoviaje
@@ -87,7 +91,7 @@
             this.txtFolio.Location = new System.Drawing.Point(104, 123);
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.Size = new System.Drawing.Size(194, 25);
-            this.txtFolio.TabIndex = 1;
+            this.txtFolio.TabIndex = 3;
             // 
             // cmbTipoFlete
             // 
@@ -102,7 +106,7 @@
             this.cmbTipoFlete.Location = new System.Drawing.Point(104, 33);
             this.cmbTipoFlete.Name = "cmbTipoFlete";
             this.cmbTipoFlete.Size = new System.Drawing.Size(194, 28);
-            this.cmbTipoFlete.TabIndex = 2;
+            this.cmbTipoFlete.TabIndex = 1;
             this.cmbTipoFlete.SelectedIndexChanged += new System.EventHandler(this.cmbTipoFlete_SelectedIndexChanged);
             this.cmbTipoFlete.Leave += new System.EventHandler(this.cmbTipoFlete_Leave);
             // 
@@ -144,7 +148,7 @@
             this.txtOrigen.Location = new System.Drawing.Point(104, 165);
             this.txtOrigen.Name = "txtOrigen";
             this.txtOrigen.Size = new System.Drawing.Size(194, 25);
-            this.txtOrigen.TabIndex = 9;
+            this.txtOrigen.TabIndex = 4;
             // 
             // txtDestino
             // 
@@ -154,7 +158,7 @@
             this.txtDestino.Location = new System.Drawing.Point(393, 167);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(194, 25);
-            this.txtDestino.TabIndex = 10;
+            this.txtDestino.TabIndex = 5;
             // 
             // txtProducto
             // 
@@ -164,7 +168,7 @@
             this.txtProducto.Location = new System.Drawing.Point(393, 262);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(194, 25);
-            this.txtProducto.TabIndex = 12;
+            this.txtProducto.TabIndex = 9;
             // 
             // label5
             // 
@@ -188,12 +192,13 @@
             // txtTemperatura
             // 
             this.txtTemperatura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTemperatura.Enabled = false;
             this.txtTemperatura.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtTemperatura.ForeColor = System.Drawing.Color.DarkRed;
             this.txtTemperatura.Location = new System.Drawing.Point(103, 308);
             this.txtTemperatura.Name = "txtTemperatura";
             this.txtTemperatura.Size = new System.Drawing.Size(194, 25);
-            this.txtTemperatura.TabIndex = 16;
+            this.txtTemperatura.TabIndex = 10;
             // 
             // label7
             // 
@@ -208,10 +213,11 @@
             // rbCentigrados
             // 
             this.rbCentigrados.AutoSize = true;
+            this.rbCentigrados.Enabled = false;
             this.rbCentigrados.Location = new System.Drawing.Point(307, 300);
             this.rbCentigrados.Name = "rbCentigrados";
             this.rbCentigrados.Size = new System.Drawing.Size(36, 17);
-            this.rbCentigrados.TabIndex = 17;
+            this.rbCentigrados.TabIndex = 11;
             this.rbCentigrados.TabStop = true;
             this.rbCentigrados.Text = "°C";
             this.rbCentigrados.UseVisualStyleBackColor = true;
@@ -219,10 +225,11 @@
             // rbFarenheit
             // 
             this.rbFarenheit.AutoSize = true;
+            this.rbFarenheit.Enabled = false;
             this.rbFarenheit.Location = new System.Drawing.Point(307, 323);
             this.rbFarenheit.Name = "rbFarenheit";
             this.rbFarenheit.Size = new System.Drawing.Size(35, 17);
-            this.rbFarenheit.TabIndex = 18;
+            this.rbFarenheit.TabIndex = 12;
             this.rbFarenheit.TabStop = true;
             this.rbFarenheit.Text = "°F";
             this.rbFarenheit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,12 +238,13 @@
             // txtRangoTemperaturas
             // 
             this.txtRangoTemperaturas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtRangoTemperaturas.Enabled = false;
             this.txtRangoTemperaturas.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtRangoTemperaturas.ForeColor = System.Drawing.Color.DarkRed;
             this.txtRangoTemperaturas.Location = new System.Drawing.Point(423, 308);
             this.txtRangoTemperaturas.Name = "txtRangoTemperaturas";
             this.txtRangoTemperaturas.Size = new System.Drawing.Size(164, 25);
-            this.txtRangoTemperaturas.TabIndex = 20;
+            this.txtRangoTemperaturas.TabIndex = 13;
             // 
             // label8
             // 
@@ -260,7 +268,7 @@
             this.cmbTipoCarga.Location = new System.Drawing.Point(104, 259);
             this.cmbTipoCarga.Name = "cmbTipoCarga";
             this.cmbTipoCarga.Size = new System.Drawing.Size(194, 28);
-            this.cmbTipoCarga.TabIndex = 22;
+            this.cmbTipoCarga.TabIndex = 8;
             this.cmbTipoCarga.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCarga_SelectedIndexChanged);
             // 
             // label9
@@ -295,7 +303,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(29, 385);
+            this.label11.Location = new System.Drawing.Point(29, 394);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 20);
             this.label11.TabIndex = 25;
@@ -307,16 +315,16 @@
             this.txtTracto.Enabled = false;
             this.txtTracto.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtTracto.ForeColor = System.Drawing.Color.DarkRed;
-            this.txtTracto.Location = new System.Drawing.Point(393, 380);
+            this.txtTracto.Location = new System.Drawing.Point(393, 389);
             this.txtTracto.Name = "txtTracto";
             this.txtTracto.Size = new System.Drawing.Size(194, 25);
-            this.txtTracto.TabIndex = 28;
+            this.txtTracto.TabIndex = 16;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(333, 385);
+            this.label12.Location = new System.Drawing.Point(333, 394);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 20);
             this.label12.TabIndex = 27;
@@ -326,12 +334,13 @@
             // 
             this.cmbOperador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbOperador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbOperador.BackColor = System.Drawing.Color.White;
             this.cmbOperador.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.cmbOperador.FormattingEnabled = true;
-            this.cmbOperador.Location = new System.Drawing.Point(104, 377);
+            this.cmbOperador.Location = new System.Drawing.Point(104, 386);
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(194, 28);
-            this.cmbOperador.TabIndex = 29;
+            this.cmbOperador.TabIndex = 15;
             this.cmbOperador.SelectedIndexChanged += new System.EventHandler(this.cmbOperador_SelectedIndexChanged);
             this.cmbOperador.Leave += new System.EventHandler(this.cmbOperador_Leave);
             // 
@@ -354,7 +363,7 @@
             this.dtpHora.Name = "dtpHora";
             this.dtpHora.ShowUpDown = true;
             this.dtpHora.Size = new System.Drawing.Size(105, 25);
-            this.dtpHora.TabIndex = 31;
+            this.dtpHora.TabIndex = 7;
             // 
             // dtpFecha
             // 
@@ -362,7 +371,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(104, 205);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(237, 25);
-            this.dtpFecha.TabIndex = 32;
+            this.dtpFecha.TabIndex = 6;
             // 
             // label14
             // 
@@ -379,16 +388,16 @@
             this.txtsello.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtsello.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtsello.ForeColor = System.Drawing.Color.DarkRed;
-            this.txtsello.Location = new System.Drawing.Point(104, 423);
+            this.txtsello.Location = new System.Drawing.Point(104, 432);
             this.txtsello.Name = "txtsello";
             this.txtsello.Size = new System.Drawing.Size(194, 25);
-            this.txtsello.TabIndex = 35;
+            this.txtsello.TabIndex = 17;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(54, 426);
+            this.label15.Location = new System.Drawing.Point(54, 435);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 20);
             this.label15.TabIndex = 34;
@@ -399,21 +408,22 @@
             this.btnGuardarFlete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnGuardarFlete.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarFlete.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarFlete.Location = new System.Drawing.Point(422, 473);
+            this.btnGuardarFlete.Location = new System.Drawing.Point(433, 595);
             this.btnGuardarFlete.Name = "btnGuardarFlete";
             this.btnGuardarFlete.Size = new System.Drawing.Size(85, 32);
-            this.btnGuardarFlete.TabIndex = 36;
+            this.btnGuardarFlete.TabIndex = 19;
             this.btnGuardarFlete.Text = "Guardar";
             this.btnGuardarFlete.UseVisualStyleBackColor = false;
+            this.btnGuardarFlete.Click += new System.EventHandler(this.btnGuardarFlete_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Location = new System.Drawing.Point(528, 473);
+            this.btnCancelar.Location = new System.Drawing.Point(528, 595);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 32);
-            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -445,8 +455,9 @@
             this.cmbcajas.Location = new System.Drawing.Point(104, 82);
             this.cmbcajas.Name = "cmbcajas";
             this.cmbcajas.Size = new System.Drawing.Size(194, 28);
-            this.cmbcajas.TabIndex = 41;
+            this.cmbcajas.TabIndex = 2;
             this.cmbcajas.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbcajas.Leave += new System.EventHandler(this.cmbcajas_Leave);
             // 
             // label18
             // 
@@ -479,12 +490,56 @@
             this.label19.TabIndex = 43;
             this.label19.Text = "Placas:";
             // 
+            // txtcomentarios
+            // 
+            this.txtcomentarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtcomentarios.Location = new System.Drawing.Point(96, 484);
+            this.txtcomentarios.Name = "txtcomentarios";
+            this.txtcomentarios.Size = new System.Drawing.Size(491, 96);
+            this.txtcomentarios.TabIndex = 18;
+            this.txtcomentarios.Text = "";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(10, 470);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(83, 20);
+            this.label20.TabIndex = 45;
+            this.label20.Text = "Comentarios:";
+            // 
+            // label21
+            // 
+            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label21.Font = new System.Drawing.Font("Arial Narrow", 1F);
+            this.label21.Location = new System.Drawing.Point(-43, 585);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(710, 10);
+            this.label21.TabIndex = 46;
+            // 
+            // chkOperadorPendiente
+            // 
+            this.chkOperadorPendiente.AutoSize = true;
+            this.chkOperadorPendiente.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkOperadorPendiente.Location = new System.Drawing.Point(33, 358);
+            this.chkOperadorPendiente.Name = "chkOperadorPendiente";
+            this.chkOperadorPendiente.Size = new System.Drawing.Size(89, 24);
+            this.chkOperadorPendiente.TabIndex = 14;
+            this.chkOperadorPendiente.Text = "Pendiente";
+            this.chkOperadorPendiente.UseVisualStyleBackColor = true;
+            this.chkOperadorPendiente.CheckedChanged += new System.EventHandler(this.chkOperadorPendiente_CheckedChanged);
+            // 
             // FrmRegistroViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(625, 515);
+            this.ClientSize = new System.Drawing.Size(625, 630);
+            this.Controls.Add(this.chkOperadorPendiente);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txtcomentarios);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.txtPlacas);
             this.Controls.Add(this.cmbcajas);
@@ -575,5 +630,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtPlacas;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.RichTextBox txtcomentarios;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox chkOperadorPendiente;
     }
 }

@@ -134,7 +134,7 @@ namespace LosBucanerosApp
 
         private void btnFletes_Click(object sender, EventArgs e)
         {
-            FrmRegViaje objmostrar = new FrmRegViaje();
+            FrmRegViaje objmostrar = new FrmRegViaje(Nombre,Apellido,Permiso);
             objmostrar.ShowDialog();
         }
 

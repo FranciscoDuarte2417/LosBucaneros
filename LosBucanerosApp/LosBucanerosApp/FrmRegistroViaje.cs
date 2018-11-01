@@ -12,15 +12,23 @@ namespace LosBucanerosApp
 {
     public partial class FrmRegistroViaje : Form
     {
-        public FrmRegistroViaje()
+        public FrmRegistroViaje(string nombre, string apellido, string permiso)
         {
             InitializeComponent();
+            Nombre = nombre;
+            Apellido = apellido;
+            Permiso = permiso;
         }
         ClsOperadores objClsOperadores = new ClsOperadores();
         ClsTractos objClsTractos = new ClsTractos();
+        ClsCajas objcajas = new ClsCajas();
+        ClsFletes objFletes = new ClsFletes();
+
+        string Nombre, Apellido, Permiso;
         private void FrmRegistroViaje_Load(object sender, EventArgs e)
         {
             CargarOperador();
+            CargarCajas();
         }
         string tipo;
         private void cmbTipoFlete_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,7 +58,7 @@ namespace LosBucanerosApp
             txtsello.Enabled = true;
             cmbOperador.Enabled = true;
             txtTracto.Enabled = true;
-            CargarCajas();
+          
         }
         public void VisibilidadExportacioNacional()
         {
@@ -76,6 +84,7 @@ namespace LosBucanerosApp
             cmbcajas.ValueMember = "IdCaja";
             cmbcajas.DisplayMember = "Caja";
             cmbcajas.SelectedIndex = -1;
+            txtPlacas.Text = "";
         }
         public void CargarTractosPorOperador()
         {
@@ -129,7 +138,7 @@ namespace LosBucanerosApp
         }
 
 
-        ClsCajas objcajas = new ClsCajas();
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbcajas.SelectedIndex != -1)
@@ -163,6 +172,124 @@ namespace LosBucanerosApp
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbcajas_Leave(object sender, EventArgs e)
+        {
+            int index = cmbcajas.FindString(cmbcajas.Text);
+
+            if (index >= 0)
+            {
+                cmbcajas.SelectedIndex = index;
+                cmbcajas.BackColor = Color.White;
+
+            }
+            else
+            {
+                cmbcajas.BackColor = Color.Red;
+                txtPlacas.Text = "";
+
+            }
+        }
+
+        private void btnGuardarFlete_Click(object sender, EventArgs e)
+        {
+            insertarFlete();
+        }
+        public void insertarFlete()
+        {
+            objFletes.Caja = Convert.ToInt32(cmbcajas.SelectedValue);
+            objFletes.FolioViaje = txtFolio.Text;
+            objFletes.Origen = txtOrigen.Text;
+            objFletes.Destino = txtDestino.Text;
+            objFletes.Fechacita = dtpFecha.Value.ToShortDateString();
+            objFletes.HoraCita = dtpHora.Value.ToShortTimeString();
+            objFletes.TipoCarga = cmbTipoCarga.Text;
+            objFletes.Producto = txtProducto.Text;
+         
+            if (cmbTipoCarga.Text== "SECO")
+            {
+                objFletes.TemperaturaProgramada = "NA";
+                objFletes.TipoTemperatura = "NA";
+                objFletes.RangoTemperatura = "NA";
+            }
+            else if (cmbTipoCarga.Text == "REFRIGERADO")
+            {
+                            
+            if (rbCentigrados.Checked)
+            {
+                objFletes.TipoTemperatura = "C";
+            }
+            else if (rbFarenheit.Checked)
+            {
+                objFletes.TipoTemperatura = "F";
+            }
+                objFletes.TemperaturaProgramada = txtTemperatura.Text;
+                objFletes.RangoTemperatura = txtRangoTemperaturas.Text;
+                
+            }
+
+            if (chkOperadorPendiente.Checked)
+            {
+                objFletes.Operador = 0;
+                objFletes.Sellos = "PENDIENTE";
+            }
+            else
+            {
+                objFletes.Operador = Convert.ToInt32(cmbOperador.SelectedValue);
+                objFletes.Sellos = txtsello.Text;
+            }
+
+            objFletes.Comentarios = txtcomentarios.Text;
+
+            if (cmbTipoFlete.Text=="IMPORTACION")
+            {
+                objFletes.EstatusBucaneros = "PENDIENTE";
+                objFletes.EstatusCliente = "PENDINTE";
+                
+            }
+            objFletes.FechaSalida = "PENDIENTE";
+            objFletes.HoraSalida = "PENDIENTE";
+            objFletes.FechaLlegada = "PENDIENTE";
+            objFletes.HoraLlegada = "PENDIENTE";
+            objFletes.FechaDescarga = "PENDIENTE";
+            objFletes.HoraDescarga = "PENDIENTE";
+
+            objFletes.FechaCreacion = DateTime.Now.ToShortDateString();
+            objFletes.HoraCreacion = DateTime.Now.ToShortTimeString();
+            objFletes.Usuario = Nombre + " "+ Apellido;
+
+            objFletes.insertarFlete();
+
+
+
+
+
+
+
+
+
+        }
+
+        private void chkOperadorPendiente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkOperadorPendiente.Checked==true)
+            {
+                cmbOperador.Text = "";
+                txtTracto.Text = "";
+                txtsello.Text = "";
+
+                cmbOperador.Enabled = false;
+                txtTracto.Enabled = false;
+                txtsello.Enabled = false;
+
+            }
+            else
+            {
+                cmbOperador.Enabled = true;
+                txtsello.Enabled = true;
+
+            }
         }
     }
 }
