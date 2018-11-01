@@ -315,10 +315,7 @@ namespace LosBucanerosApp
 
         private void FrmAjusteLineas_Load(object sender, EventArgs e)
         {
-            //CargarGrid();
-            //cmbcriteriobusqueda.SelectedIndex = -1;
-            //cmbfiltroestatus.SelectedIndex = -1;
-                pbaltas.Image = LosBucanerosApp.Properties.Resources.alta;
+               pbaltas.Image = LosBucanerosApp.Properties.Resources.alta;
                 pbmodificaciones.Image = LosBucanerosApp.Properties.Resources.modificaciones;
                 pbbajas.Image = LosBucanerosApp.Properties.Resources.baja;
                 pbbajas.Visible = true;
@@ -326,6 +323,9 @@ namespace LosBucanerosApp
             
            
         }
+
+
+
 
         private void pbaltas_MouseHover(object sender, EventArgs e)
         {
@@ -350,7 +350,7 @@ namespace LosBucanerosApp
         private void pbaltas_Click(object sender, EventArgs e)
         {
 
-            lbltitulo.Text = "ALTAS - LINEA";
+            lbltitulo.Text = "ALTAS - DE FLETE";
             lbltitulo.ForeColor = Color.Blue;
             FrmRegistroViaje objmostrar = new FrmRegistroViaje(Nombre,Apellido,Permiso);
             objmostrar.ShowDialog();

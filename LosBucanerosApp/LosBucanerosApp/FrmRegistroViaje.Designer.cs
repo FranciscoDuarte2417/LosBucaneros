@@ -71,6 +71,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.chkOperadorPendiente = new System.Windows.Forms.CheckBox();
+            this.cmbClientes = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbltipoviaje
@@ -85,13 +87,15 @@
             // 
             // txtFolio
             // 
-            this.txtFolio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtFolio.BackColor = System.Drawing.Color.White;
             this.txtFolio.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtFolio.ForeColor = System.Drawing.Color.DarkRed;
             this.txtFolio.Location = new System.Drawing.Point(104, 123);
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.Size = new System.Drawing.Size(194, 25);
             this.txtFolio.TabIndex = 3;
+            this.txtFolio.TextChanged += new System.EventHandler(this.txtFolio_TextChanged);
+            this.txtFolio.Leave += new System.EventHandler(this.txtFolio_Leave);
             // 
             // cmbTipoFlete
             // 
@@ -108,6 +112,7 @@
             this.cmbTipoFlete.Size = new System.Drawing.Size(194, 28);
             this.cmbTipoFlete.TabIndex = 1;
             this.cmbTipoFlete.SelectedIndexChanged += new System.EventHandler(this.cmbTipoFlete_SelectedIndexChanged);
+            this.cmbTipoFlete.TextChanged += new System.EventHandler(this.cmbTipoFlete_TextChanged);
             this.cmbTipoFlete.Leave += new System.EventHandler(this.cmbTipoFlete_Leave);
             // 
             // label1
@@ -142,33 +147,42 @@
             // 
             // txtOrigen
             // 
-            this.txtOrigen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtOrigen.BackColor = System.Drawing.Color.White;
+            this.txtOrigen.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtOrigen.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtOrigen.ForeColor = System.Drawing.Color.DarkRed;
             this.txtOrigen.Location = new System.Drawing.Point(104, 165);
             this.txtOrigen.Name = "txtOrigen";
             this.txtOrigen.Size = new System.Drawing.Size(194, 25);
             this.txtOrigen.TabIndex = 4;
+            this.txtOrigen.TextChanged += new System.EventHandler(this.txtOrigen_TextChanged);
+            this.txtOrigen.Leave += new System.EventHandler(this.txtOrigen_Leave);
             // 
             // txtDestino
             // 
-            this.txtDestino.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtDestino.BackColor = System.Drawing.Color.White;
+            this.txtDestino.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDestino.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtDestino.ForeColor = System.Drawing.Color.DarkRed;
             this.txtDestino.Location = new System.Drawing.Point(393, 167);
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(194, 25);
             this.txtDestino.TabIndex = 5;
+            this.txtDestino.TextChanged += new System.EventHandler(this.txtDestino_TextChanged);
+            this.txtDestino.Leave += new System.EventHandler(this.txtDestino_Leave);
             // 
             // txtProducto
             // 
-            this.txtProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtProducto.BackColor = System.Drawing.Color.White;
+            this.txtProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProducto.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtProducto.ForeColor = System.Drawing.Color.DarkRed;
             this.txtProducto.Location = new System.Drawing.Point(393, 262);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(194, 25);
             this.txtProducto.TabIndex = 9;
+            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
+            this.txtProducto.Leave += new System.EventHandler(this.txtProducto_Leave);
             // 
             // label5
             // 
@@ -191,7 +205,7 @@
             // 
             // txtTemperatura
             // 
-            this.txtTemperatura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTemperatura.BackColor = System.Drawing.Color.White;
             this.txtTemperatura.Enabled = false;
             this.txtTemperatura.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtTemperatura.ForeColor = System.Drawing.Color.DarkRed;
@@ -199,6 +213,9 @@
             this.txtTemperatura.Name = "txtTemperatura";
             this.txtTemperatura.Size = new System.Drawing.Size(194, 25);
             this.txtTemperatura.TabIndex = 10;
+            this.txtTemperatura.TextChanged += new System.EventHandler(this.txtTemperatura_TextChanged);
+            this.txtTemperatura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTemperatura_KeyPress);
+            this.txtTemperatura.Leave += new System.EventHandler(this.txtTemperatura_Leave);
             // 
             // label7
             // 
@@ -237,7 +254,7 @@
             // 
             // txtRangoTemperaturas
             // 
-            this.txtRangoTemperaturas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtRangoTemperaturas.BackColor = System.Drawing.Color.White;
             this.txtRangoTemperaturas.Enabled = false;
             this.txtRangoTemperaturas.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtRangoTemperaturas.ForeColor = System.Drawing.Color.DarkRed;
@@ -245,6 +262,9 @@
             this.txtRangoTemperaturas.Name = "txtRangoTemperaturas";
             this.txtRangoTemperaturas.Size = new System.Drawing.Size(164, 25);
             this.txtRangoTemperaturas.TabIndex = 13;
+            this.txtRangoTemperaturas.TextChanged += new System.EventHandler(this.txtRangoTemperaturas_TextChanged);
+            this.txtRangoTemperaturas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRangoTemperaturas_KeyPress);
+            this.txtRangoTemperaturas.Leave += new System.EventHandler(this.txtRangoTemperaturas_Leave);
             // 
             // label8
             // 
@@ -258,6 +278,7 @@
             // 
             // cmbTipoCarga
             // 
+            this.cmbTipoCarga.BackColor = System.Drawing.Color.White;
             this.cmbTipoCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoCarga.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.cmbTipoCarga.ForeColor = System.Drawing.Color.DarkRed;
@@ -270,6 +291,7 @@
             this.cmbTipoCarga.Size = new System.Drawing.Size(194, 28);
             this.cmbTipoCarga.TabIndex = 8;
             this.cmbTipoCarga.SelectedIndexChanged += new System.EventHandler(this.cmbTipoCarga_SelectedIndexChanged);
+            this.cmbTipoCarga.Leave += new System.EventHandler(this.cmbTipoCarga_Leave);
             // 
             // label9
             // 
@@ -311,7 +333,7 @@
             // 
             // txtTracto
             // 
-            this.txtTracto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTracto.BackColor = System.Drawing.Color.White;
             this.txtTracto.Enabled = false;
             this.txtTracto.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtTracto.ForeColor = System.Drawing.Color.DarkRed;
@@ -319,6 +341,8 @@
             this.txtTracto.Name = "txtTracto";
             this.txtTracto.Size = new System.Drawing.Size(194, 25);
             this.txtTracto.TabIndex = 16;
+            this.txtTracto.TextChanged += new System.EventHandler(this.txtTracto_TextChanged);
+            this.txtTracto.Leave += new System.EventHandler(this.txtTracto_Leave);
             // 
             // label12
             // 
@@ -385,13 +409,15 @@
             // 
             // txtsello
             // 
-            this.txtsello.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtsello.BackColor = System.Drawing.Color.White;
             this.txtsello.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtsello.ForeColor = System.Drawing.Color.DarkRed;
             this.txtsello.Location = new System.Drawing.Point(104, 432);
             this.txtsello.Name = "txtsello";
             this.txtsello.Size = new System.Drawing.Size(194, 25);
             this.txtsello.TabIndex = 17;
+            this.txtsello.TextChanged += new System.EventHandler(this.txtsello_TextChanged);
+            this.txtsello.Leave += new System.EventHandler(this.txtsello_Leave);
             // 
             // label15
             // 
@@ -457,6 +483,7 @@
             this.cmbcajas.Size = new System.Drawing.Size(194, 28);
             this.cmbcajas.TabIndex = 2;
             this.cmbcajas.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbcajas.TextChanged += new System.EventHandler(this.cmbcajas_TextChanged);
             this.cmbcajas.Leave += new System.EventHandler(this.cmbcajas_Leave);
             // 
             // label18
@@ -471,7 +498,7 @@
             // 
             // txtPlacas
             // 
-            this.txtPlacas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtPlacas.BackColor = System.Drawing.Color.White;
             this.txtPlacas.Enabled = false;
             this.txtPlacas.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
             this.txtPlacas.ForeColor = System.Drawing.Color.DarkRed;
@@ -479,6 +506,7 @@
             this.txtPlacas.Name = "txtPlacas";
             this.txtPlacas.Size = new System.Drawing.Size(194, 25);
             this.txtPlacas.TabIndex = 42;
+            this.txtPlacas.TextChanged += new System.EventHandler(this.txtPlacas_TextChanged);
             // 
             // label19
             // 
@@ -492,7 +520,7 @@
             // 
             // txtcomentarios
             // 
-            this.txtcomentarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtcomentarios.BackColor = System.Drawing.Color.White;
             this.txtcomentarios.Location = new System.Drawing.Point(96, 484);
             this.txtcomentarios.Name = "txtcomentarios";
             this.txtcomentarios.Size = new System.Drawing.Size(491, 96);
@@ -530,12 +558,33 @@
             this.chkOperadorPendiente.UseVisualStyleBackColor = true;
             this.chkOperadorPendiente.CheckedChanged += new System.EventHandler(this.chkOperadorPendiente_CheckedChanged);
             // 
+            // cmbClientes
+            // 
+            this.cmbClientes.Font = new System.Drawing.Font("Arial Narrow", 11.25F);
+            this.cmbClientes.FormattingEnabled = true;
+            this.cmbClientes.Location = new System.Drawing.Point(394, 125);
+            this.cmbClientes.Name = "cmbClientes";
+            this.cmbClientes.Size = new System.Drawing.Size(194, 28);
+            this.cmbClientes.TabIndex = 4;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(331, 126);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(51, 20);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "Cliente:";
+            // 
             // FrmRegistroViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(625, 630);
+            this.ClientSize = new System.Drawing.Size(624, 630);
+            this.Controls.Add(this.cmbClientes);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.chkOperadorPendiente);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
@@ -634,5 +683,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.CheckBox chkOperadorPendiente;
+        private System.Windows.Forms.ComboBox cmbClientes;
+        private System.Windows.Forms.Label label22;
     }
 }

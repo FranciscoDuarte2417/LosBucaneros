@@ -58,13 +58,16 @@ namespace LosBucanerosApp
             txtsello.Enabled = true;
             cmbOperador.Enabled = true;
             txtTracto.Enabled = true;
-          
+            chkOperadorPendiente.Enabled = true;
+
         }
         public void VisibilidadExportacioNacional()
         {
             txtsello.Enabled = true;
             cmbOperador.Enabled = true;
             txtTracto.Enabled = true;
+            chkOperadorPendiente.Checked = false;
+            chkOperadorPendiente.Enabled = false;
         }
         public void CargarOperador()
         {
@@ -116,6 +119,8 @@ namespace LosBucanerosApp
 
         private void cmbOperador_Leave(object sender, EventArgs e)
         {
+            
+           
             int index = cmbOperador.FindString(cmbOperador.Text);
 
             if (index >= 0)
@@ -129,6 +134,7 @@ namespace LosBucanerosApp
                 cmbOperador.BackColor = Color.Red;
 
             }
+            
         }
 
         private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +164,7 @@ namespace LosBucanerosApp
                 txtProducto.Enabled = true;
                 rbCentigrados.Enabled = true;
                 rbFarenheit.Enabled = true;
+
             }
             else if(cmbTipoCarga.SelectedIndex ==1)
             {
@@ -166,6 +173,8 @@ namespace LosBucanerosApp
                 txtProducto.Enabled = true;
                 rbCentigrados.Enabled = false;
                 rbFarenheit.Enabled = false;
+                txtTemperatura.Text = "";
+                txtRangoTemperaturas.Text = "";
             }
         }
 
@@ -196,6 +205,206 @@ namespace LosBucanerosApp
         {
             insertarFlete();
         }
+
+        private void txtFolio_Leave(object sender, EventArgs e)
+        {
+           
+
+            if (txtFolio.Text!="" )
+            {
+
+                txtFolio.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtFolio.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtOrigen_Leave(object sender, EventArgs e)
+        {
+            if(txtOrigen.Text != "")
+            {
+
+                txtOrigen.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtOrigen.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtDestino_Leave(object sender, EventArgs e)
+        {
+            if (txtDestino.Text != "")
+            {
+
+                txtDestino.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtDestino.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtProducto.Text != "")
+            {
+
+                txtProducto.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtProducto.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtTemperatura_Leave(object sender, EventArgs e)
+        {
+
+            if (cmbTipoCarga.Text=="REFRIGERADO")
+            {
+
+           
+            if (txtTemperatura.Text != "")
+            {
+
+                txtTemperatura.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtTemperatura.BackColor = Color.Red;
+
+            }
+            }
+        }
+
+        private void txtRangoTemperaturas_Leave(object sender, EventArgs e)
+        {
+
+            if (cmbTipoCarga.Text == "REFRIGERADO")
+            {
+                if (txtRangoTemperaturas.Text != "")
+                {
+
+                    txtRangoTemperaturas.BackColor = Color.White;
+
+                }
+                else
+                {
+                    txtRangoTemperaturas.BackColor = Color.Red;
+
+                }
+            }
+        }
+
+        private void cmbTipoCarga_Leave(object sender, EventArgs e)
+        {
+            int index = cmbTipoCarga.FindString(cmbTipoCarga.Text);
+
+            if (index >= 0)
+            {
+                cmbTipoCarga.SelectedIndex = index;
+                cmbTipoCarga.BackColor = Color.White;
+
+            }
+            else
+            {
+                cmbTipoCarga.BackColor = Color.Red;
+              
+
+            }
+        }
+
+        private void txtTracto_Leave(object sender, EventArgs e)
+        {
+            
+
+
+                if (txtTracto.Text != "")
+                {
+
+                    txtTracto.BackColor = Color.White;
+
+                }
+                else
+                {
+                    txtTracto.BackColor = Color.Red;
+
+                }
+            
+
+        }
+
+        private void txtsello_Leave(object sender, EventArgs e)
+        {
+            
+
+
+                if (txtsello.Text != "")
+                {
+
+                    txtsello.BackColor = Color.White;
+
+                }
+                else
+                {
+                    txtsello.BackColor = Color.Red;
+
+                }
+            
+        }
+
+        private void txtPlacas_TextChanged(object sender, EventArgs e)
+        {
+            txtPlacas.BackColor = Color.White;
+        }
+
+        private void cmbTipoFlete_TextChanged(object sender, EventArgs e)
+        {
+            cmbTipoFlete.BackColor = Color.White;
+        }
+
+        private void cmbcajas_TextChanged(object sender, EventArgs e)
+        {
+            cmbcajas.BackColor = Color.White;
+        }
+
+        private void txtFolio_TextChanged(object sender, EventArgs e)
+        {
+            txtFolio.BackColor = Color.White;
+        }
+
+        private void txtOrigen_TextChanged(object sender, EventArgs e)
+        {
+            txtOrigen.BackColor = Color.White;
+        }
+
+        private void txtDestino_TextChanged(object sender, EventArgs e)
+        {
+            txtDestino.BackColor = Color.White;
+        }
+
+        private void txtProducto_TextChanged(object sender, EventArgs e)
+        {
+            txtProducto.BackColor = Color.White;
+        }
+
+        private void txtsello_TextChanged(object sender, EventArgs e)
+        {
+            txtsello.BackColor = Color.White;
+        }
+
         public void insertarFlete()
         {
             objFletes.Caja = Convert.ToInt32(cmbcajas.SelectedValue);
@@ -206,8 +415,9 @@ namespace LosBucanerosApp
             objFletes.HoraCita = dtpHora.Value.ToShortTimeString();
             objFletes.TipoCarga = cmbTipoCarga.Text;
             objFletes.Producto = txtProducto.Text;
-         
-            if (cmbTipoCarga.Text== "SECO")
+            objFletes.Cliente = Convert.ToInt32(cmbClientes.Text);
+
+            if (cmbTipoCarga.Text == "SECO")
             {
                 objFletes.TemperaturaProgramada = "NA";
                 objFletes.TipoTemperatura = "NA";
@@ -215,18 +425,18 @@ namespace LosBucanerosApp
             }
             else if (cmbTipoCarga.Text == "REFRIGERADO")
             {
-                            
-            if (rbCentigrados.Checked)
-            {
-                objFletes.TipoTemperatura = "C";
-            }
-            else if (rbFarenheit.Checked)
-            {
-                objFletes.TipoTemperatura = "F";
-            }
+
+                if (rbCentigrados.Checked)
+                {
+                    objFletes.TipoTemperatura = "C";
+                }
+                else if (rbFarenheit.Checked)
+                {
+                    objFletes.TipoTemperatura = "F";
+                }
                 objFletes.TemperaturaProgramada = txtTemperatura.Text;
                 objFletes.RangoTemperatura = txtRangoTemperaturas.Text;
-                
+
             }
 
             if (chkOperadorPendiente.Checked)
@@ -242,12 +452,11 @@ namespace LosBucanerosApp
 
             objFletes.Comentarios = txtcomentarios.Text;
 
-            if (cmbTipoFlete.Text=="IMPORTACION")
-            {
+            
                 objFletes.EstatusBucaneros = "PENDIENTE";
                 objFletes.EstatusCliente = "PENDINTE";
-                
-            }
+
+            
             objFletes.FechaSalida = "PENDIENTE";
             objFletes.HoraSalida = "PENDIENTE";
             objFletes.FechaLlegada = "PENDIENTE";
@@ -257,11 +466,139 @@ namespace LosBucanerosApp
 
             objFletes.FechaCreacion = DateTime.Now.ToShortDateString();
             objFletes.HoraCreacion = DateTime.Now.ToShortTimeString();
-            objFletes.Usuario = Nombre + " "+ Apellido;
-
-            objFletes.insertarFlete();
+            objFletes.Usuario = Nombre + " " + Apellido;
 
 
+            if (cmbTipoCarga.Text == "REFRIGERADO")
+            {
+                if (txtTemperatura.BackColor == Color.Red || txtTemperatura.Text == "" || txtRangoTemperaturas.BackColor == Color.Red || txtRangoTemperaturas.Text == "" || (rbCentigrados.Checked=false && rbFarenheit.Checked==false))
+                {
+                    MessageBox.Show("Error en Temperaturas");
+                }
+                else
+                {
+
+                    if (cmbTipoFlete.BackColor == Color.Red || cmbTipoFlete.Text == "" ||
+                       cmbcajas.BackColor == Color.Red || cmbcajas.Text == "" ||
+                       txtFolio.BackColor == Color.Red || txtFolio.Text == "" ||
+                        cmbClientes.BackColor == Color.Red || cmbClientes.Text == "" ||
+                       txtOrigen.BackColor == Color.Red || txtOrigen.Text == "" ||
+                       txtDestino.BackColor == Color.Red || txtDestino.Text == "" ||
+                       cmbTipoCarga.BackColor == Color.Red || cmbTipoCarga.Text == "" ||
+                       cmbcajas.BackColor == Color.Red || cmbcajas.Text == "" ||
+                       txtProducto.BackColor == Color.Red || txtProducto.Text == "")
+                    {
+
+                        MessageBox.Show("Campos Necesarios");
+
+                    }
+                    else
+                    {
+
+                        if (chkOperadorPendiente.Checked == false)
+                        {
+                            if (cmbOperador.BackColor == Color.Red || cmbOperador.Text == "" || txtsello.BackColor == Color.Red || txtsello.Text == "")
+                            {
+
+                                MessageBox.Show("Campos Necesarios");
+                            }
+                            else
+                            {
+                                objFletes.insertarFlete();
+                                if (objFletes.Resultado == 1)
+                                {
+                                    MessageBox.Show("Flete Almacenado Con Exito");
+                                    LimpiarCampos();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
+
+                            }
+                        }
+                        else
+                        {
+                            objFletes.insertarFlete();
+                            if (objFletes.Resultado==1)
+                            {
+                                MessageBox.Show("Flete Almacenado Con Exito");
+                                LimpiarCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                            }
+                           
+                        }
+
+                        //  
+                    }
+
+
+
+                }
+
+            }
+            else
+            {
+
+            if (cmbTipoFlete.BackColor==Color.Red||cmbTipoFlete.Text==""||
+               cmbcajas.BackColor == Color.Red|| cmbcajas.Text == "" ||
+               txtFolio.BackColor == Color.Red || txtFolio.Text == "" ||
+               txtOrigen.BackColor == Color.Red || txtOrigen.Text == "" ||
+               txtDestino.BackColor == Color.Red || txtDestino.Text==""||
+               cmbTipoCarga.BackColor == Color.Red || cmbTipoCarga.Text == "" ||
+               cmbcajas.BackColor == Color.Red || cmbcajas.Text == "" ||
+               txtProducto.BackColor == Color.Red || txtProducto.Text == "" )
+            {
+                
+                MessageBox.Show("Campos Necesarios");
+
+            }
+            else
+            {
+
+                    if (chkOperadorPendiente.Checked==false)
+                    {
+                        if (cmbOperador.BackColor == Color.Red || cmbOperador.Text == "" || txtsello.BackColor == Color.Red || txtsello.Text=="")
+                        {
+                            MessageBox.Show("Campos Necesarios");
+                        }
+                        else
+                        {
+                            objFletes.insertarFlete();
+                            if (objFletes.Resultado == 1)
+                            {
+                                MessageBox.Show("Flete Almacenado Con Exito");
+                                LimpiarCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        objFletes.insertarFlete();
+                        if (objFletes.Resultado == 1)
+                        {
+                            MessageBox.Show("Flete Almacenado Con Exito");
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                        }
+                    }
+                   
+              //  objFletes.insertarFlete();
+            }
+
+               
+
+            }
 
 
 
@@ -269,6 +606,54 @@ namespace LosBucanerosApp
 
 
 
+
+        }
+
+        private void txtTemperatura_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtRangoTemperaturas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtTemperatura_TextChanged(object sender, EventArgs e)
+        {
+            txtTemperatura.BackColor = Color.White;
+        }
+
+        private void txtTracto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRangoTemperaturas_TextChanged(object sender, EventArgs e)
+        {
+            txtRangoTemperaturas.BackColor = Color.White;
+        }
+
+        public void LimpiarCampos()
+        {
+            cmbTipoFlete.SelectedIndex = -1;
+            cmbcajas.SelectedIndex = -1;
+            txtPlacas.Text = "";
+            txtFolio.Text = "";
+            txtOrigen.Text = "";
+            txtDestino.Text = "";
+            cmbTipoCarga.SelectedIndex = -1;
+            txtProducto.Text = "";
+            txtTemperatura.Text = "";
+            txtRangoTemperaturas.Text = "";
+            rbCentigrados.Checked = false;
+            rbFarenheit.Checked = false;
+            txtRangoTemperaturas.Text = "";
+            chkOperadorPendiente.Checked = false;
+            cmbOperador.SelectedIndex = -1;
+            txtTracto.Text = "";
+            txtsello.Text = "";
+            txtcomentarios.Text = "";
         }
 
         private void chkOperadorPendiente_CheckedChanged(object sender, EventArgs e)
@@ -282,6 +667,10 @@ namespace LosBucanerosApp
                 cmbOperador.Enabled = false;
                 txtTracto.Enabled = false;
                 txtsello.Enabled = false;
+
+                cmbOperador.BackColor = Color.White;
+                txtTracto.BackColor = Color.White;
+                txtsello.BackColor = Color.White;
 
             }
             else

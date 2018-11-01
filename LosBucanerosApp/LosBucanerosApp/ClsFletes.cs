@@ -22,6 +22,7 @@ namespace LosBucanerosApp
         private string rangoTemperatura;
         private string tipoCarga;
         private int caja;
+        private int cliente;
         private int operador;
         private string sellos;
         private string estatusCliente;
@@ -390,7 +391,18 @@ namespace LosBucanerosApp
             }
         }
 
-       
+        public int Cliente
+        {
+            get
+            {
+                return cliente;
+            }
+
+            set
+            {
+                cliente = value;
+            }
+        }
 
         public void insertarFlete()
         {
@@ -411,6 +423,7 @@ namespace LosBucanerosApp
                 //enviamos los parametros del procedimiento almacenado
                 comm.Parameters.AddWithValue("@caja", Caja);
                 comm.Parameters.AddWithValue("@folioviaje", FolioViaje);
+                comm.Parameters.AddWithValue("@cliente", Cliente);
                 comm.Parameters.AddWithValue("@origen", Origen);
                 comm.Parameters.AddWithValue("@destino", Destino);
                 comm.Parameters.AddWithValue("@fechacreacion", FechaCreacion);

@@ -44,6 +44,10 @@
             this.pbaltas = new System.Windows.Forms.PictureBox();
             this.pbmodificaciones = new System.Windows.Forms.PictureBox();
             this.pbbajas = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.gbGridOperadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFletes)).BeginInit();
@@ -67,7 +71,7 @@
             // 
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(183, 77);
+            this.btnCancelar.Location = new System.Drawing.Point(183, 74);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(67, 18);
             this.btnCancelar.TabIndex = 48;
@@ -103,6 +107,10 @@
             this.gbGridOperadores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbGridOperadores.Controls.Add(this.label2);
+            this.gbGridOperadores.Controls.Add(this.comboBox2);
+            this.gbGridOperadores.Controls.Add(this.label1);
+            this.gbGridOperadores.Controls.Add(this.comboBox1);
             this.gbGridOperadores.Controls.Add(this.lblcont);
             this.gbGridOperadores.Controls.Add(this.label10);
             this.gbGridOperadores.Controls.Add(this.cmbfiltroestatus);
@@ -117,7 +125,7 @@
             // lblcont
             // 
             this.lblcont.AutoSize = true;
-            this.lblcont.Location = new System.Drawing.Point(514, 20);
+            this.lblcont.Location = new System.Drawing.Point(689, 23);
             this.lblcont.Name = "lblcont";
             this.lblcont.Size = new System.Drawing.Size(38, 13);
             this.lblcont.TabIndex = 28;
@@ -127,34 +135,35 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(6, 10);
+            this.label10.Location = new System.Drawing.Point(6, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 18);
+            this.label10.Size = new System.Drawing.Size(89, 20);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Estatus";
+            this.label10.Text = "Tipo de Viaje";
             // 
             // cmbfiltroestatus
             // 
             this.cmbfiltroestatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbfiltroestatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbfiltroestatus.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbfiltroestatus.FormattingEnabled = true;
             this.cmbfiltroestatus.Items.AddRange(new object[] {
-            "Por Iniciar",
-            "En Trayecto",
-            "Entregado"});
-            this.cmbfiltroestatus.Location = new System.Drawing.Point(9, 33);
+            "TODO",
+            "IMPORTACION",
+            "EXPORTACION",
+            "NACIONAL"});
+            this.cmbfiltroestatus.Location = new System.Drawing.Point(9, 34);
             this.cmbfiltroestatus.Name = "cmbfiltroestatus";
-            this.cmbfiltroestatus.Size = new System.Drawing.Size(135, 26);
+            this.cmbfiltroestatus.Size = new System.Drawing.Size(135, 28);
             this.cmbfiltroestatus.TabIndex = 26;
             // 
             // txtBuscaOperadores
             // 
-            this.txtBuscaOperadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscaOperadores.Location = new System.Drawing.Point(161, 35);
+            this.txtBuscaOperadores.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscaOperadores.Location = new System.Drawing.Point(479, 35);
             this.txtBuscaOperadores.Name = "txtBuscaOperadores";
-            this.txtBuscaOperadores.Size = new System.Drawing.Size(176, 24);
+            this.txtBuscaOperadores.Size = new System.Drawing.Size(176, 26);
             this.txtBuscaOperadores.TabIndex = 16;
             // 
             // dgvFletes
@@ -168,10 +177,10 @@
             this.dgvFletes.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvFletes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFletes.GridColor = System.Drawing.Color.DarkBlue;
-            this.dgvFletes.Location = new System.Drawing.Point(6, 63);
+            this.dgvFletes.Location = new System.Drawing.Point(6, 65);
             this.dgvFletes.Name = "dgvFletes";
             this.dgvFletes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFletes.Size = new System.Drawing.Size(1051, 518);
+            this.dgvFletes.Size = new System.Drawing.Size(1051, 516);
             this.dgvFletes.TabIndex = 0;
             this.dgvFletes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLineas_CellContentClick);
             // 
@@ -181,7 +190,7 @@
             this.lbltitulo.BackColor = System.Drawing.Color.White;
             this.lbltitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltitulo.ForeColor = System.Drawing.Color.Black;
-            this.lbltitulo.Location = new System.Drawing.Point(312, 77);
+            this.lbltitulo.Location = new System.Drawing.Point(297, 69);
             this.lbltitulo.Name = "lbltitulo";
             this.lbltitulo.Size = new System.Drawing.Size(229, 24);
             this.lbltitulo.TabIndex = 51;
@@ -189,7 +198,7 @@
             // 
             // pbaltas
             // 
-            this.pbaltas.Location = new System.Drawing.Point(8, 50);
+            this.pbaltas.Location = new System.Drawing.Point(8, 47);
             this.pbaltas.Name = "pbaltas";
             this.pbaltas.Size = new System.Drawing.Size(45, 45);
             this.pbaltas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -201,7 +210,7 @@
             // 
             // pbmodificaciones
             // 
-            this.pbmodificaciones.Location = new System.Drawing.Point(62, 50);
+            this.pbmodificaciones.Location = new System.Drawing.Point(62, 47);
             this.pbmodificaciones.Name = "pbmodificaciones";
             this.pbmodificaciones.Size = new System.Drawing.Size(45, 45);
             this.pbmodificaciones.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -213,13 +222,67 @@
             // 
             // pbbajas
             // 
-            this.pbbajas.Location = new System.Drawing.Point(120, 51);
+            this.pbbajas.Location = new System.Drawing.Point(120, 48);
             this.pbbajas.Name = "pbbajas";
             this.pbbajas.Size = new System.Drawing.Size(45, 45);
             this.pbbajas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbbajas.TabIndex = 44;
             this.pbbajas.TabStop = false;
             this.pbbajas.Click += new System.EventHandler(this.pbbajas_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(322, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Filtro:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Folio",
+            "Cliente",
+            "Origen",
+            "Destino"});
+            this.comboBox1.Location = new System.Drawing.Point(325, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(135, 28);
+            this.comboBox1.TabIndex = 29;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(159, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Estatus:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "PENDIENTE",
+            "POR INICIAR",
+            "EN TRAYECTO",
+            "FINALIZADO"});
+            this.comboBox2.Location = new System.Drawing.Point(162, 34);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(135, 28);
+            this.comboBox2.TabIndex = 31;
             // 
             // FrmRegViaje
             // 
@@ -269,5 +332,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbfiltroestatus;
         private System.Windows.Forms.Label lblcont;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
