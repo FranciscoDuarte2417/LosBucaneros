@@ -37,6 +37,11 @@ namespace LosBucanerosApp
         private string horaDescarga;
         private string usuario;
         private string comentarios;
+        private string reparto;
+        private int noReparto;
+        private string direccionCarga;
+        private string direccionDescarga;
+
 
 
 
@@ -404,6 +409,58 @@ namespace LosBucanerosApp
             }
         }
 
+        public string Reparto
+        {
+            get
+            {
+                return reparto;
+            }
+
+            set
+            {
+                reparto = value;
+            }
+        }
+
+        public int NoReparto
+        {
+            get
+            {
+                return noReparto;
+            }
+
+            set
+            {
+                noReparto = value;
+            }
+        }
+
+        public string DireccionCarga
+        {
+            get
+            {
+                return direccionCarga;
+            }
+
+            set
+            {
+                direccionCarga = value;
+            }
+        }
+
+        public string DireccionDescarga
+        {
+            get
+            {
+                return direccionDescarga;
+            }
+
+            set
+            {
+                direccionDescarga = value;
+            }
+        }
+
         public void insertarFlete()
         {
             try
@@ -424,6 +481,10 @@ namespace LosBucanerosApp
                 comm.Parameters.AddWithValue("@caja", Caja);
                 comm.Parameters.AddWithValue("@folioviaje", FolioViaje);
                 comm.Parameters.AddWithValue("@cliente", Cliente);
+                comm.Parameters.AddWithValue("@reparto", Reparto);
+                comm.Parameters.AddWithValue("@noreparto", NoReparto);
+                comm.Parameters.AddWithValue("@direccioncarga", direccionCarga);
+                comm.Parameters.AddWithValue("@direcciondescarga", DireccionDescarga);
                 comm.Parameters.AddWithValue("@origen", Origen);
                 comm.Parameters.AddWithValue("@destino", Destino);
                 comm.Parameters.AddWithValue("@fechacreacion", FechaCreacion);

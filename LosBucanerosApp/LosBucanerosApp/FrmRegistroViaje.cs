@@ -405,23 +405,25 @@ namespace LosBucanerosApp
             txtsello.BackColor = Color.White;
         }
 
+        string[] almacena;
         public void insertarFlete()
         {
-            objFletes.Caja = Convert.ToInt32(cmbcajas.SelectedValue);
-            objFletes.FolioViaje = txtFolio.Text;
-            objFletes.Origen = txtOrigen.Text;
-            objFletes.Destino = txtDestino.Text;
-            objFletes.Fechacita = dtpFecha.Value.ToShortDateString();
-            objFletes.HoraCita = dtpHora.Value.ToShortTimeString();
-            objFletes.TipoCarga = cmbTipoCarga.Text;
-            objFletes.Producto = txtProducto.Text;
-            objFletes.Cliente = Convert.ToInt32(cmbClientes.Text);
+            objFletes.Caja = Convert.ToInt32(cmbcajas.SelectedValue); // almacena[0]= cmbcajas.SelectedValue.ToString();//
+            objFletes.FolioViaje = txtFolio.Text;                     // almacena[1] = cmbcajas.SelectedValue.ToString();// 
+            objFletes.Origen = txtOrigen.Text;                       //  almacena[2] = cmbcajas.SelectedValue.ToString();//
+            objFletes.Destino = txtDestino.Text;                     //  almacena[3] = cmbcajas.SelectedValue.ToString();//
+            objFletes.Fechacita = dtpFecha.Value.ToShortDateString(); // almacena[4] = cmbcajas.SelectedValue.ToString();//
+            objFletes.HoraCita = dtpHora.Value.ToShortTimeString();    //almacena[5] = cmbcajas.SelectedValue.ToString();//
+
+            objFletes.TipoCarga = cmbTipoCarga.Text;                  // almacena[6] = cmbcajas.SelectedValue.ToString();//
+            objFletes.Producto = txtProducto.Text;                    // almacena[7] = cmbcajas.SelectedValue.ToString();//
+            objFletes.Cliente = Convert.ToInt32(cmbClientes.Text);    // almacena[8] = cmbcajas.SelectedValue.ToString();//
 
             if (cmbTipoCarga.Text == "SECO")
             {
-                objFletes.TemperaturaProgramada = "NA";
-                objFletes.TipoTemperatura = "NA";
-                objFletes.RangoTemperatura = "NA";
+                objFletes.TemperaturaProgramada = "NA";              // almacena[9] = cmbcajas.SelectedValue.ToString();//
+                objFletes.TipoTemperatura = "NA";                    // almacena[10] = cmbcajas.SelectedValue.ToString();//
+                objFletes.RangoTemperatura = "NA";                  //  almacena[11] = cmbcajas.SelectedValue.ToString();//
             }
             else if (cmbTipoCarga.Text == "REFRIGERADO")
             {
@@ -468,6 +470,9 @@ namespace LosBucanerosApp
             objFletes.HoraCreacion = DateTime.Now.ToShortTimeString();
             objFletes.Usuario = Nombre + " " + Apellido;
 
+            objFletes.DireccionCarga = txtDirecionCarga.Text;
+            objFletes.DireccionDescarga = txtDireccionDescarga.Text;
+
 
             if (cmbTipoCarga.Text == "REFRIGERADO")
             {
@@ -504,32 +509,156 @@ namespace LosBucanerosApp
                             }
                             else
                             {
-                                objFletes.insertarFlete();
-                                if (objFletes.Resultado == 1)
+
+                                if (chkRepartos.Checked)
                                 {
+                                    if (dataGridView1.RowCount > 0)
+                                    {
+                                        //haz el primero nada mas
+                                        objFletes.Reparto = "SI";
+                                        objFletes.NoReparto = 0;
+                                        objFletes.insertarFlete();
+                                        if (objFletes.Resultado == 1)
+                                        {
+
+                                            MessageBox.Show("Flete Almacenado Con Exito");
+                                            LimpiarCampos();
+
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                        }
+
+                                        for (int i = 0; i < dataGridView1.RowCount; i++)
+                                        {
+                                            objFletes.NoReparto =Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                                            objFletes.Destino = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                            objFletes.DireccionDescarga = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                                            objFletes.Fechacita = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                            objFletes.HoraCita = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                            objFletes.insertarFlete();
+                                           
+                                        
+
+                                    }
+                                        if (objFletes.Resultado == 1)
+                                        {
+
+                                            MessageBox.Show("Flete Almacenado Con Exito");
+                                            LimpiarCampos();
+
+
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                        }
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    objFletes.Reparto = "NO";
+                                    objFletes.NoReparto = 0;
+                                    objFletes.insertarFlete();
+
+
+
+                                    if (objFletes.Resultado == 1)
+                                {
+                                  
                                     MessageBox.Show("Flete Almacenado Con Exito");
                                     LimpiarCampos();
+
+                                   
                                 }
                                 else
                                 {
                                     MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
                                 }
 
                             }
                         }
                         else
                         {
-                            objFletes.insertarFlete();
-                            if (objFletes.Resultado==1)
+
+
+
+                            if (chkRepartos.Checked)
                             {
-                                MessageBox.Show("Flete Almacenado Con Exito");
-                                LimpiarCampos();
+                                if (dataGridView1.RowCount > 0)
+                                {
+                                    //haz el primero nada mas
+                                    objFletes.Reparto = "SI";
+                                    objFletes.NoReparto = 0;
+                                    objFletes.insertarFlete();
+                                    if (objFletes.Resultado == 1)
+                                    {
+
+                                        MessageBox.Show("Flete Almacenado Con Exito");
+                                        LimpiarCampos();
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                    }
+
+                                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                                    {
+                                        objFletes.NoReparto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                                        objFletes.Destino = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                        objFletes.DireccionDescarga = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                                        objFletes.Fechacita = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                        objFletes.HoraCita = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                        objFletes.insertarFlete();
+                                        
+
+
+                                    }
+                                    if (objFletes.Resultado == 1)
+                                    {
+
+                                        MessageBox.Show("Flete Almacenado Con Exito");
+                                        LimpiarCampos();
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                    }
+                                }
+
                             }
                             else
                             {
-                                MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+
+                                objFletes.Reparto = "NO";
+                                objFletes.NoReparto = 0;
+                                objFletes.insertarFlete();
+
+
+
+                                if (objFletes.Resultado == 1)
+                                {
+
+                                    MessageBox.Show("Flete Almacenado Con Exito");
+                                    LimpiarCampos();
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
                             }
-                           
+
                         }
 
                         //  
@@ -567,29 +696,150 @@ namespace LosBucanerosApp
                         }
                         else
                         {
-                            objFletes.insertarFlete();
-                            if (objFletes.Resultado == 1)
+                            if (chkRepartos.Checked)
                             {
-                                MessageBox.Show("Flete Almacenado Con Exito");
-                                LimpiarCampos();
+                                if (dataGridView1.RowCount > 0)
+                                {
+                                    //haz el primero nada mas
+                                    objFletes.Reparto = "SI";
+                                    objFletes.NoReparto = 0;
+                                    objFletes.insertarFlete();
+                                    if (objFletes.Resultado == 1)
+                                    {
+
+                                        MessageBox.Show("Flete Almacenado Con Exito");
+                                        LimpiarCampos();
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                    }
+
+                                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                                    {
+                                        objFletes.NoReparto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                                        objFletes.Destino = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                        objFletes.DireccionDescarga = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                                        objFletes.Fechacita = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                        objFletes.HoraCita = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                        objFletes.insertarFlete();
+                                        
+
+
+                                    }
+                                    if (objFletes.Resultado == 1)
+                                    {
+
+                                        MessageBox.Show("Flete Almacenado Con Exito");
+                                        LimpiarCampos();
+
+
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                    }
+                                }
+
                             }
                             else
                             {
-                                MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                objFletes.Reparto = "NO";
+                                objFletes.NoReparto = 0;
+
+                                objFletes.insertarFlete();
+
+
+
+                                if (objFletes.Resultado == 1)
+                                {
+
+                                    MessageBox.Show("Flete Almacenado Con Exito");
+                                    LimpiarCampos();
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
                             }
                         }
                     }
                     else
                     {
-                        objFletes.insertarFlete();
-                        if (objFletes.Resultado == 1)
+                        if (chkRepartos.Checked)
                         {
-                            MessageBox.Show("Flete Almacenado Con Exito");
-                            LimpiarCampos();
+                            if (dataGridView1.RowCount > 0)
+                            {
+                                //haz el primero nada mas
+                                objFletes.Reparto = "SI";
+                                objFletes.NoReparto = 0;
+                                objFletes.insertarFlete();
+                                if (objFletes.Resultado == 1)
+                                {
+
+                                    MessageBox.Show("Flete Almacenado Con Exito");
+                                    LimpiarCampos();
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
+
+                                for (int i = 0; i < dataGridView1.RowCount; i++)
+                                {
+                                    objFletes.NoReparto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                                    objFletes.Destino = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                    objFletes.DireccionDescarga = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                                    objFletes.Fechacita = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                    objFletes.HoraCita = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                    objFletes.insertarFlete();
+                                   
+
+
+                                }
+                                if (objFletes.Resultado == 1)
+                                {
+
+                                    MessageBox.Show("Flete Almacenado Con Exito");
+                                    LimpiarCampos();
+
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                                }
+
+                            }
+
                         }
                         else
                         {
-                            MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+
+                            objFletes.Reparto = "NO";
+                            objFletes.NoReparto = 0;
+                            objFletes.insertarFlete();
+
+
+
+                            if (objFletes.Resultado == 1)
+                            {
+
+                                MessageBox.Show("Flete Almacenado Con Exito");
+                                LimpiarCampos();
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error Al Almacenar, Contactar a Sistemas");
+                            }
                         }
                     }
                    
@@ -605,6 +855,11 @@ namespace LosBucanerosApp
 
 
 
+
+
+        }
+        public void insertarFleteReparto()
+        {
 
 
         }
@@ -634,6 +889,25 @@ namespace LosBucanerosApp
             txtRangoTemperaturas.BackColor = Color.White;
         }
 
+        private void chkRepartos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRepartos.Checked)
+            {
+                this.Width = 1120;
+                this.Height = 765;
+                this.Location = new Point(this.Location.X - 200, this.Location.Y);
+                
+            }
+            else
+            {
+                this.Width = 634;
+                this.Height = 765;
+                this.Location = new Point(this.Location.X + 200, this.Location.Y);
+                LimpiarCamposRepartos();
+
+            }
+        }
+
         public void LimpiarCampos()
         {
             cmbTipoFlete.SelectedIndex = -1;
@@ -654,6 +928,116 @@ namespace LosBucanerosApp
             txtTracto.Text = "";
             txtsello.Text = "";
             txtcomentarios.Text = "";
+        }
+
+        private void lnkrepartos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (chkRepartos.Checked)
+            {
+                this.Width = 1120;
+                this.Height = 765;
+            }
+            else
+            {
+                MessageBox.Show("No Existen Repartos");
+            }
+            
+
+        }
+
+        private void btnAgregarRepartos_Click(object sender, EventArgs e)
+        {
+            if (txtdestinoreparto.Text=="" ||txtdirecciondescargareparto.Text=="" || txtdestinoreparto.BackColor==Color.Red || txtdirecciondescargareparto.BackColor==Color.Red)
+            {
+                MessageBox.Show("Campos Necesarios");
+            }
+            else
+            {
+
+           
+            int numeroreparto = dataGridView1.RowCount + 1; ;
+            string destino = txtdestinoreparto.Text;
+            string direccion = txtdirecciondescargareparto.Text;
+            string fechaChita = dtfechareparto.Value.ToShortDateString();
+            string HoraChita = dtHoraReparto.Value.ToShortTimeString();
+            string[] row = {numeroreparto.ToString(),destino,direccion,fechaChita,HoraChita};
+            dataGridView1.Rows.Add(row);
+
+                txtdestinoreparto.Text = "";
+                txtdirecciondescargareparto.Text = "";
+
+                txtdestinoreparto.Focus();
+            }
+
+
+        }
+
+        private void btnEliminarRenglon_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount>0)
+            {
+                if (dataGridView1.CurrentRow.Index>=0)
+                {
+                    dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+
+                    for (int i = 0; i < dataGridView1.RowCount; i++)
+                    {
+                        dataGridView1.Rows[i].Cells[0].Value = (i + 1).ToString();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el reparto que desea eliminar");
+                }
+               
+            }
+           
+        }
+
+        private void txtdestinoreparto_Leave(object sender, EventArgs e)
+        {
+            if (txtdestinoreparto.Text != "")
+            {
+
+                txtdestinoreparto.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtdestinoreparto.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtdirecciondescargareparto_Leave(object sender, EventArgs e)
+        {
+            if (txtdirecciondescargareparto.Text != "")
+            {
+
+                txtdirecciondescargareparto.BackColor = Color.White;
+
+            }
+            else
+            {
+                txtdirecciondescargareparto.BackColor = Color.Red;
+
+            }
+        }
+
+        private void txtdestinoreparto_TextChanged(object sender, EventArgs e)
+        {
+            txtdestinoreparto.BackColor = Color.White;
+        }
+
+        private void txtdirecciondescargareparto_TextChanged(object sender, EventArgs e)
+        {
+            txtdirecciondescargareparto.BackColor = Color.White;
+        }
+
+        public void LimpiarCamposRepartos()
+        {
+         
         }
 
         private void chkOperadorPendiente_CheckedChanged(object sender, EventArgs e)

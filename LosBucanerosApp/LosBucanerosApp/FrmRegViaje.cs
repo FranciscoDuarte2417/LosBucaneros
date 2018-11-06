@@ -320,8 +320,20 @@ namespace LosBucanerosApp
                 pbbajas.Image = LosBucanerosApp.Properties.Resources.baja;
                 pbbajas.Visible = true;
                 pbmodificaciones.Visible = true;
-            
-           
+
+            cmbtipoviaje.SelectedIndex = -1;
+            cmbEstatus.SelectedIndex = -1;
+
+            CargarGridTodo();
+
+
+
+
+
+        }
+        public void CargarGridTodo()
+        {
+
         }
 
 

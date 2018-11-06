@@ -307,14 +307,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LosBucanerosApp.exe" size="10029576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LosBucanerosApp.exe" size="10039816">
       <assemblyIdentity name="LosBucanerosApp" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Xsfs//iA2E+T4TDuFPte4cbfVCtP1c9yGbO/M52gtzU=</dsig:DigestValue>
+        <dsig:DigestValue>ewci6n0Mm+miWxswEeKp2lWb9Eb//QDogrJHxZtiKEg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
