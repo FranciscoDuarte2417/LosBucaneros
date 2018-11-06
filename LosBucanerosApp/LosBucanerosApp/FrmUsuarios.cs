@@ -25,23 +25,14 @@ namespace LosBucanerosApp
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            if (Permiso!= "Admin")
-            {//solo pueden entrar usuarios con permiso de administrador
-                MessageBox.Show("No Cuenta Con Permiso de Administrador","Error de Autorizacion");
-                this.Close();
-                
-            }
-            else
-            {
+            
                 PbUsuarios.Image = LosBucanerosApp.Properties.Resources.user;
                 lblusuario.Text = "Bienvenido: " + Nombre + " " + Apellido;
                 pbtracto.Image = LosBucanerosApp.Properties.Resources.tracto;
                 pbCoordinadores.Image = LosBucanerosApp.Properties.Resources.jefe2;
                 pbOperador.Image = LosBucanerosApp.Properties.Resources.Operadores;
                 pbAdministrativos.Image = LosBucanerosApp.Properties.Resources.administrativo;
-                
-                
-            }
+              
           
 
         }
@@ -151,6 +142,19 @@ namespace LosBucanerosApp
         {
             FrmAjustesAdministrativos objmostrar = new FrmAjustesAdministrativos(Nombre, Apellido, Permiso);
             objmostrar.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmGrupos objgrupos = new FrmGrupos(Nombre, Apellido, Permiso);
+            objgrupos.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmFlotilla objflotilla = new FrmFlotilla();
+            objflotilla.Show();
         }
 
         private void PbUsuarios_MouseLeave(object sender, EventArgs e)

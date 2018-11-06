@@ -258,7 +258,7 @@ namespace LosBucanerosApp
                 adp = new SqlDataAdapter(comm);
                 dt = new DataTable();
                 adp.Fill(dt);
-
+                conn.Close();
 
             }
             catch (Exception)

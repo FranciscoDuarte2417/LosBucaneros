@@ -67,6 +67,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdministrativos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbOperador)).BeginInit();
@@ -102,7 +104,7 @@
             this.groupBox1.Controls.Add(this.PbUsuarios);
             this.groupBox1.Location = new System.Drawing.Point(746, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2, 0);
+            this.groupBox1.Size = new System.Drawing.Size(77, 122);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -114,7 +116,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(-320, 183);
+            this.label6.Location = new System.Drawing.Point(-285, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 20);
             this.label6.TabIndex = 16;
@@ -123,7 +125,7 @@
             // pbAdministrativos
             // 
             this.pbAdministrativos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbAdministrativos.Location = new System.Drawing.Point(-331, 206);
+            this.pbAdministrativos.Location = new System.Drawing.Point(-296, 206);
             this.pbAdministrativos.Name = "pbAdministrativos";
             this.pbAdministrativos.Size = new System.Drawing.Size(139, 117);
             this.pbAdministrativos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +142,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(210, -34);
+            this.label4.Location = new System.Drawing.Point(245, -34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 14;
@@ -149,7 +151,7 @@
             // pbOperador
             // 
             this.pbOperador.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbOperador.Location = new System.Drawing.Point(197, 57);
+            this.pbOperador.Location = new System.Drawing.Point(232, 57);
             this.pbOperador.Name = "pbOperador";
             this.pbOperador.Size = new System.Drawing.Size(139, 117);
             this.pbOperador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -166,7 +168,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(30, -34);
+            this.label3.Location = new System.Drawing.Point(65, -34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 12;
@@ -175,7 +177,7 @@
             // pbCoordinadores
             // 
             this.pbCoordinadores.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbCoordinadores.Location = new System.Drawing.Point(17, 58);
+            this.pbCoordinadores.Location = new System.Drawing.Point(52, 58);
             this.pbCoordinadores.Name = "pbCoordinadores";
             this.pbCoordinadores.Size = new System.Drawing.Size(139, 117);
             this.pbCoordinadores.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -192,7 +194,7 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(-119, -38);
+            this.label5.Location = new System.Drawing.Point(-84, -38);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
             this.label5.TabIndex = 10;
@@ -205,7 +207,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(-303, -38);
+            this.label2.Location = new System.Drawing.Point(-268, -38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 1;
@@ -214,7 +216,7 @@
             // pbtracto
             // 
             this.pbtracto.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pbtracto.Location = new System.Drawing.Point(-158, 53);
+            this.pbtracto.Location = new System.Drawing.Point(-123, 53);
             this.pbtracto.Name = "pbtracto";
             this.pbtracto.Size = new System.Drawing.Size(139, 117);
             this.pbtracto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -227,7 +229,7 @@
             // PbUsuarios
             // 
             this.PbUsuarios.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PbUsuarios.Location = new System.Drawing.Point(-331, 53);
+            this.PbUsuarios.Location = new System.Drawing.Point(-296, 53);
             this.PbUsuarios.Name = "PbUsuarios";
             this.PbUsuarios.Size = new System.Drawing.Size(139, 117);
             this.PbUsuarios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -255,7 +257,7 @@
             this.panel1.Controls.Add(this.lblusuario);
             this.panel1.Location = new System.Drawing.Point(195, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(738, 45);
+            this.panel1.Size = new System.Drawing.Size(813, 45);
             this.panel1.TabIndex = 19;
             // 
             // lblusuario
@@ -272,7 +274,7 @@
             // btnPersonal
             // 
             this.btnPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnPersonal.Font = new System.Drawing.Font("NewsGoth Lt BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
             this.btnPersonal.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnPersonal.Location = new System.Drawing.Point(0, 255);
@@ -286,7 +288,7 @@
             // btnUsuarios
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnUsuarios.Font = new System.Drawing.Font("NewsGoth Lt BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnUsuarios.Location = new System.Drawing.Point(0, 189);
@@ -325,7 +327,7 @@
             this.label13.BackColor = System.Drawing.Color.White;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(389, 118);
+            this.label13.Location = new System.Drawing.Point(427, 118);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(325, 33);
             this.label13.TabIndex = 15;
@@ -337,14 +339,14 @@
             this.sistemaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(945, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1020, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // btnTractos
             // 
             this.btnTractos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnTractos.Font = new System.Drawing.Font("NewsGoth Lt BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTractos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTractos.ForeColor = System.Drawing.Color.White;
             this.btnTractos.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnTractos.Location = new System.Drawing.Point(0, 387);
@@ -358,7 +360,7 @@
             // btnOperadores
             // 
             this.btnOperadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnOperadores.Font = new System.Drawing.Font("NewsGoth Lt BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOperadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOperadores.ForeColor = System.Drawing.Color.White;
             this.btnOperadores.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnOperadores.Location = new System.Drawing.Point(0, 321);
@@ -372,7 +374,7 @@
             // btnCoordinador
             // 
             this.btnCoordinador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCoordinador.Font = new System.Drawing.Font("NewsGoth Lt BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCoordinador.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCoordinador.ForeColor = System.Drawing.Color.White;
             this.btnCoordinador.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnCoordinador.Location = new System.Drawing.Point(0, 453);
@@ -392,7 +394,7 @@
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Location = new System.Drawing.Point(195, 168);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(738, 344);
+            this.groupBox2.Size = new System.Drawing.Size(813, 466);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
@@ -551,12 +553,42 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "* 191 Totales";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button1.Location = new System.Drawing.Point(0, 519);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 60);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Grupos Monitorio";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.button2.Location = new System.Drawing.Point(0, 585);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(171, 60);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Flotillas";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmAjustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(945, 524);
+            this.ClientSize = new System.Drawing.Size(1020, 646);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCoordinador);
             this.Controls.Add(this.btnTractos);
@@ -641,5 +673,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
